@@ -6,6 +6,8 @@
     --highlightColor: #ff5722;
     --bodycopyColor: #000;
     --actionColor: #333;
+    --bodyCopySize: 0.8em;
+    --displayCopySize: 1.1em;
 }
 
 /* General CSS */
@@ -31,7 +33,7 @@ body {
     color: #fff;
     font-family: 'Dosis', sans-serif;
     font-weight: 400;
-    font-size: 0.8em;
+    font-size: var(--bodyCopySize);
     line-height: 1.5;
 }
 
@@ -65,7 +67,6 @@ ul { list-style: none; }
     background-color: #fff;
     color: var(--bodycopyColor);
     opacity: 1;
-
     display: block;
     width: 34px;
     height: 2px;
@@ -119,12 +120,17 @@ ul { list-style: none; }
     @media only screen and (max-width: 600px) {
         #menu-container .menu-list {
             margin: 75px 0 0;
+            padding: 0;
+            width: 100%;
+        }
+        #menu-container .menu-submenu.accordion-content.open {
+            padding: 0 30px;
         }
     }
 
 #menu-container .menu-list li.accordion-toggle, #menu-container .menu-list .menu-login {
     border-top: 1px solid #dbdcd2;
-    font-size: 16px;
+    font-size: var(--displayCopySize);
     padding: 20px;
     text-transform: uppercase;
 }
@@ -135,7 +141,7 @@ ul { list-style: none; }
 
 .accordion-toggle, .accordion-content {
     cursor: pointer;
-    font-size: 16px;
+    font-size: var(--displayCopySize);
     letter-spacing: 1px;
     line-height: 2.5em;
     position: relative;
