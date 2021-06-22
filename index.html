@@ -19,6 +19,7 @@
     <!-- End Google Tag Manager -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="core.css" rel="stylesheet">
 </head>
 <body>
@@ -156,10 +157,10 @@
                 'Accept': 'application/json'
             }
           }).then(response => {
-            status.innerHTML = "Thanks for your submission!";
+            status.innerHTML = "Thanks for reaching out! I'll be in touch soon.";
             form.reset()
           }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form"
+            status.innerHTML = "There was a problem submitting your form. Please try again."
           });
         }
         form.addEventListener("submit", handleSubmit)
