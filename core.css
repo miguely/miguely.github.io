@@ -52,7 +52,7 @@ ul { list-style: none; }
 }
 
 #menu-wrapper #hamburger-menu {
-    background: var(--actionColor);
+    background: var(--highlightColor);
     border: 2px solid #fff;
     position: relative;
     width: 22px;
@@ -243,6 +243,8 @@ ul { list-style: none; }
 }
 
 #my-form #my-form-status {
-    background-color: var(--highlightColor);
+    color: var(--highlightColor);
+    font-weight: 600;
+    line-height: 1.2em;
     padding: 10px;
 }
