@@ -1,18 +1,26 @@
 /* Fonts */
-@font-face {
-    font-family: "Dosis";
-    src: url(https://fonts.googleapis.com/css?family=Dosis) format("truetype");
-}
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+
 
 /* General CSS */
 html { 
-    background: url('myrtle_beach_brookgreen_gardens.jpg') no-repeat center center fixed; 
+    background: url('myrtle_beach_brookgreen_gardens.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
-a { text-decoration: none; color: #000;}
+    @media only screen and (max-width: 600px) {
+        html {
+            background-position: 35% 50%;
+        }
+    }
+
+a { 
+    text-decoration: none; 
+    color: #000;
+}
+
 body {
     color: #fff;
     font-family: 'Dosis', sans-serif;
@@ -20,25 +28,31 @@ body {
     font-size: 0.8em;
     line-height: 1.5;
 }
+
 ul { list-style: none; }
 
 /* Menu CSS */
 #menu-wrapper {
-    overflow: hidden;
-    max-width: 100%;
+    background: none;
+    border: none;
     cursor: pointer;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    max-width: 100%;
+    z-index: 999;
 }
 
 #menu-wrapper #hamburger-menu {
     background: #ff5722;
-    border:2px solid #fff;
-
+    border: 2px solid #fff;
     position: relative;
     width: 22px;
     height: 22px;
     margin: 10px;
     padding: 10px;
-    z-index: 999;
 }
 
 #menu-wrapper #hamburger-menu span {
@@ -80,34 +94,35 @@ ul { list-style: none; }
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 #menu-container .menu-list {
-    padding-left: 5%;
-    display: block;
-    position: absolute;
-    width: 95%;
-    margin:0;
-    max-width: 100%;
     background: white;
     box-shadow: rgba(100,100,100,0.2) 6px 2px 10px;
-    z-index: 998;
-    overflow-y: auto;
-    overflow-x: hidden;
+    display: block;
+    position: absolute;
     left: 0;
     top: -100%;
+    width: 95%;
+    margin: 0;
+    padding-left: 5%;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 998;
 }
-
-@media only screen and (max-width: 600px) {
-    #menu-container .menu-list {
-        margin:75px 0 0;
+    @media only screen and (max-width: 600px) {
+        #menu-container .menu-list {
+            margin: 75px 0 0;
+        }
     }
-}
 
 #menu-container .menu-list li.accordion-toggle, #menu-container .menu-list .menu-login {
+    border-top: 1px solid #dbdcd2;
     font-size: 16px;
     padding: 20px;
     text-transform: uppercase;
-    border-top: 1px solid #dbdcd2;
 }
+
 #menu-container .menu-list li:first-of-type {
     border-top: 0;
 }
@@ -115,58 +130,66 @@ ul { list-style: none; }
 .accordion-toggle, .accordion-content {
     cursor: pointer;
     font-size: 16px;
-    position: relative;
     letter-spacing: 1px;
     line-height: 2.5em;
+    position: relative;
 }
 
 .accordion-content {
     display: none;
 }
 
-.accordion-content li a:hover, .accordion-content li a:focus {
+.accordion-content li a:hover, .accordion-content li button:focus {
     text-decoration: underline;
 }
 
-.accordion-toggle a:before, .accordion-toggle a:after {
+.accordion-toggle button:before, .accordion-toggle button:after {
+    background-color: #5a5858;
     content: '';
     display: block;
+    margin-top: -1px;
     position: absolute;
     top: 50%;
     right: 30px;
     width: 15px;
     height: 2px;
-    margin-top: -1px;
-    background-color: #5a5858;
     transform-origin: 50% 50%;
     transition: all 0.3s ease-out;
 }
 
-.accordion-toggle a:before {
-    transform: rotate(-90deg);
+.accordion-toggle button:before {
     opacity: 1;
+    transform: rotate(-90deg);
     z-index: 2;
 }
 
 .accordion-toggle.active-tab {
-background: #ff5722;
-transition: all 0.3s ease;
-}
-.accordion-toggle a.active:before {
-    transform: rotate(0deg);
-    background: #fff !important;
+    transition: all 0.3s ease;
+    background: #ff5722;
 }
 
-.accordion-toggle a.active:after {
-    transform: rotate(180deg);
+.accordion-toggle button.active:before {
+    background: #fff !important;
+    transform: rotate(0deg);
+}
+
+.accordion-toggle button.active:after {
     background: #fff !important;
     opacity: 0;
+    transform: rotate(180deg);
+}
+
+.accordion-toggle button.menu-link {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 /* Copyright */
 #copyright {
     font-size: 0.9em;
-
     position: absolute;
     bottom: 1em;
     right: 1.5em;
@@ -179,30 +202,36 @@ transition: all 0.3s ease;
     right: 1.5em; 
     width: 10em; 
 }
-@media only screen and (max-width: 600px) {
-    #mhdylogo {
-        width: 33%;
+    @media only screen and (max-width: 600px) {
+        #mhdylogo {
+            width: 33%;
+        }
     }
-}
 
 /* Contact Form */
-#my-form {color: #333; display:block; width:20em;}
+#my-form {
+    color: #333; 
+    display: block; 
+    width: 20em;
+}
+
 #my-form input[type=text], #my-form input[type=email], #my-form select, #my-form textarea {
-    width: 100%; 
-    padding: 12px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
     box-sizing: border-box; 
+    font-family: inherit;
     margin-top: 6px; 
     margin-bottom: 16px; 
+    padding: 12px; 
     resize: vertical;
-    }
+    width: 100%; 
+}
 
 #my-form button {    
     background-color: #333;
     color: #fff;
-    padding: 12px 20px;
+    cursor: pointer;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    padding: 12px 20px;
 }
