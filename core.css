@@ -218,7 +218,6 @@ ul { list-style: none; }
 #my-form {
     color: var(--bodycopyColor); 
     display: block; 
-    width: 20em;
 }
 
 #my-form input[type=text], #my-form input[type=email], #my-form select, #my-form textarea {
