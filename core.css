@@ -3,9 +3,9 @@
 
 /* Variables */
 :root {
-    --highlightColor: #ff8661;
+    --highlightColor: #ff5722;
     --bodycopyColor: #000;
-    --actionColor: #ff5722;
+    --actionColor: #333;
 }
 
 /* General CSS */
@@ -244,5 +244,5 @@ ul { list-style: none; }
 
 #my-form #my-form-status {
     background-color: var(--highlightColor);
-    font-weight: 600;
+    padding: 10px;
 }
