@@ -203,7 +203,7 @@ ul { list-style: none; }
 
 /* Copyright */
 #copyright {
-    font-family: var(--fontPrimary); 
+    font-family: var(--fontSecondary); 
     font-size: 0.9em;
     position: absolute;
     bottom: 1em;
