@@ -231,7 +231,7 @@ ul { list-style: none; }
     border: 1px solid #ccc; 
     border-radius: 4px; 
     box-sizing: border-box; 
-    font-family: inherit;
+    font: inherit;
     margin-top: 6px; 
     margin-bottom: 16px; 
     padding: 12px; 
@@ -253,4 +253,8 @@ ul { list-style: none; }
     font-weight: 600;
     line-height: 1.2em;
     padding: 10px;
+}
+
+.g-recaptcha {
+    margin: 0 0 1em;
 }
