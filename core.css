@@ -231,7 +231,9 @@ ul { list-style: none; }
     border: 1px solid #ccc; 
     border-radius: 4px; 
     box-sizing: border-box; 
-    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.2em;
     margin-top: 6px; 
     margin-bottom: 16px; 
     padding: 12px; 
