@@ -4,10 +4,12 @@
 /* Variables */
 :root {
     --highlightColor: #ff5722;
-    --bodycopyColor: #000;
+    --bodyCopyColor: #000;
     --actionColor: #333;
     --bodyCopySize: 1em;
     --displayCopySize: 1.2em;
+    --fontPrimary: 'Dosis';
+    --fontSecondary: 'Arial';
 }
 
 /* General CSS */
@@ -26,12 +28,12 @@ html {
 
 a { 
     text-decoration: none; 
-    color: var(--bodycopyColor);
+    color: var(--bodyCopyColor);
 }
 
 body {
     color: #fff;
-    font-family: 'Dosis', sans-serif;
+    font-family: var(--fontPrimary), sans-serif;
     font-weight: 400;
     font-size: var(--bodyCopySize);
     line-height: 1.5;
@@ -65,7 +67,7 @@ ul { list-style: none; }
 
 #menu-wrapper #hamburger-menu span {
     background-color: #fff;
-    color: var(--bodycopyColor);
+    color: var(--bodyCopyColor);
     opacity: 1;
     display: block;
     width: 28px;
@@ -201,6 +203,7 @@ ul { list-style: none; }
 
 /* Copyright */
 #copyright {
+    font-family: var(--fontPrimary); 
     font-size: 0.9em;
     position: absolute;
     bottom: 1em;
@@ -222,7 +225,7 @@ ul { list-style: none; }
 
 /* Contact Form */
 #my-form {
-    color: var(--bodycopyColor); 
+    color: var(--bodyCopyColor); 
     display: block; 
     max-width: 40em;
 }
