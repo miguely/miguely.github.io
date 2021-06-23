@@ -204,7 +204,7 @@ ul { list-style: none; }
 /* Copyright */
 #copyright {
     font-family: var(--fontSecondary); 
-    font-size: 0.9em;
+    font-size: 0.8em;
     position: absolute;
     bottom: 1em;
     right: 1.5em;
