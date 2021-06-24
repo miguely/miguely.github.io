@@ -264,6 +264,6 @@ ul { list-style: none; }
     margin: 0 0 1em;
 }
 
-.rc-anchor-error-msg {
+.rc-anchor-error-msg-container {
     left: 1em;
 }
