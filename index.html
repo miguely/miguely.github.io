@@ -22,7 +22,6 @@
     <!-- End Google Tag Manager -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="core.css" rel="stylesheet">
 </head>
 <body>
@@ -166,5 +165,14 @@
         }
         form.addEventListener("submit", handleSubmit)
     </script>
+
+    <!-- Google Captcha -->
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        $("#recaptcha-anchor-label").childNodes[1].textContent = "I'm not a cat";
+      };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script>
+
 </body>
 </html>
