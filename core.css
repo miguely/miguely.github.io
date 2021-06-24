@@ -263,3 +263,7 @@ ul { list-style: none; }
 .g-recaptcha {
     margin: 0 0 1em;
 }
+
+.grecaptcha-badge { 
+    visibility: hidden; 
+}
