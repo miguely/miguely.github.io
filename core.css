@@ -264,6 +264,10 @@ ul { list-style: none; }
     margin: 0 0 1em;
 }
 
+.g-recaptcha .rc-anchor-error-msg{
+    left: 1em;
+}
+
 .grecaptcha-badge { 
     visibility: hidden; 
 }
