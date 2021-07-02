@@ -3,13 +3,21 @@
 
 /* Variables */
 :root {
-    --highlightColor: #ff5722;
-    --bodyCopyColor: #000;
-    --actionColor: #333;
-    --bodyCopySize: 1em;
-    --displayCopySize: 1.2em;
-    --fontPrimary: 'Dosis';
-    --fontSecondary: 'Arial';
+    --CTA1: #ff5722;
+    --CTA2: #333;
+    --CTA3: #fff;
+
+    --MenuColor: #000;
+    --MenuFont: 'Dosis';
+    --MenuSize: 1.2em;
+
+    --DisplayColor: #fff;
+    --DisplayFont: 'Dosis';
+    --DisplaySize: 1.2em;
+
+    --CopyColor: #fff;
+    --CopyFont: 'Arial';
+    --CopySize: 1.1em;
 }
 
 /* General CSS */
@@ -20,7 +28,7 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 880px) {
         html {
             background-position: 37% 50%;
         }
@@ -28,15 +36,28 @@ html {
 
 a { 
     text-decoration: none; 
-    color: var(--bodyCopyColor);
+    color: var(--CopyColor);
 }
 
 body {
     color: #fff;
-    font-family: var(--fontPrimary), sans-serif;
+    font-family: var(--DisplayFont), sans-serif;
     font-weight: 400;
-    font-size: var(--bodyCopySize);
+    font-size: var(--CopySize);
     line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--DisplayColor);
+    font-size: var(--DisplaySize);
+    line-height: 1.1em;
+    margin: 0 0 0.2em;
+    padding: 0;
+}
+
+p {
+    margin: 0 0 1.5em;
+    padding: 0;
 }
 
 ul { list-style: none; }
@@ -56,7 +77,7 @@ ul { list-style: none; }
 }
 
 #menu-wrapper #hamburger-menu {
-    background: var(--highlightColor);
+    background: var(--CTA1);
     border: 2px solid #fff;
     position: relative;
     width: 22px;
@@ -67,7 +88,7 @@ ul { list-style: none; }
 
 #menu-wrapper #hamburger-menu span {
     background-color: #fff;
-    color: var(--bodyCopyColor);
+    color: #fff;
     opacity: 1;
     display: block;
     width: 28px;
@@ -104,22 +125,26 @@ ul { list-style: none; }
     padding-bottom: 20px;
 }
 
+#menu-container .menu-list .menu-submenu a {
+    color: var(--MenuColor);
+}
+
 #menu-container .menu-list {
     background: white;
     box-shadow: rgba(100,100,100,0.2) 6px 2px 10px;
     display: block;
-    position: absolute;
     left: 0;
-    top: -100%;
-    width: 95%;
     margin: 0;
-    padding-left: 5%;
     max-width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-left: 5%;
+    position: absolute;
+    top: -200%;
+    width: 95%;
     z-index: 998;
 }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 880px) {
         #menu-container .menu-list {
             margin: 75px 0 0;
             padding: 0;
@@ -132,7 +157,7 @@ ul { list-style: none; }
 
 #menu-container .menu-list li.accordion-toggle, #menu-container .menu-list .menu-login {
     border-top: 1px solid #dbdcd2;
-    font-size: var(--displayCopySize);
+    font-size: var(--DisplaySize);
     padding: 20px;
     text-transform: uppercase;
 }
@@ -143,7 +168,7 @@ ul { list-style: none; }
 
 .accordion-toggle, .accordion-content {
     cursor: pointer;
-    font-size: var(--displayCopySize);
+    font-size: var(--DisplaySize);
     letter-spacing: 1px;
     line-height: 2.5em;
     position: relative;
@@ -178,7 +203,7 @@ ul { list-style: none; }
 }
 
 .accordion-toggle.active-tab {
-    background: var(--highlightColor);
+    background: var(--CTA1);
     transition: all 0.3s ease;
 }
 
@@ -203,11 +228,12 @@ ul { list-style: none; }
 
 /* Copyright */
 #copyright {
-    font-family: var(--fontSecondary); 
+    font-family: var(--CopyFont); 
     font-size: 0.8em;
     position: absolute;
     bottom: 1em;
     right: 1.5em;
+    z-index: 2;
 }
 
 /* Logo */
@@ -216,8 +242,9 @@ ul { list-style: none; }
     bottom: 3.5em; 
     right: 1.5em; 
     width: 10em; 
+    z-index: 1;
 }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 880px) {
         #mhdylogo {
             width: 33%;
         }
@@ -225,7 +252,7 @@ ul { list-style: none; }
 
 /* Contact Form */
 #my-form {
-    color: var(--bodyCopyColor); 
+    color: var(--CopyColor); 
     display: block; 
     max-width: 40em;
 }
@@ -245,7 +272,7 @@ ul { list-style: none; }
 }
 
 #my-form button {    
-    background-color: var(--actionColor);
+    background-color: var(--CTA2);
     color: #fff;
     cursor: pointer;
     border: none;
@@ -254,10 +281,30 @@ ul { list-style: none; }
 }
 
 #my-form #my-form-status {
-    color: var(--highlightColor);
+    color: var(--CTA1);
     font-weight: 600;
     line-height: 1.2em;
     padding: 10px;
+}
+
+#body-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 10px;
+    padding: 2em;
+    position: relative;
+    width: 50em; /* Optimal reading length is 50-60ch, or up to 75ch. */
+    z-index: 3;
+}
+
+    @media only screen and (max-width: 880px) {
+        #body-content {
+            width: calc(100% - 70px);
+        }
+    }
+
+#body-content a {
+    color: var(--CTA3);
+    text-decoration: underline;
 }
 
 .g-recaptcha {
@@ -266,4 +313,9 @@ ul { list-style: none; }
 
 .rc-anchor-error-msg-container {
     left: 1em;
+}
+
+.postscript {
+    color: #aaa;
+    font-weight: normal;
 }

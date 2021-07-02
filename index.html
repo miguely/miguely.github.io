@@ -5,8 +5,8 @@
 
     <meta charset="utf-8">
     <meta name="author" content="MHDY.com">
-    <meta name="description" content="MHDY.com is playing online.">
-    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="MHDY.com Homepage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="canonical" href="https://mhdy.com" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,53 +26,57 @@
 <body>
     <!-- Hamburger Slide Accordion by Anya Melnyk https://codepen.io/slyka85/pen/LbXYKQ with edits. -->
     <nav id="menu-container">
-        <button id="menu-wrapper" aria-label="Site Navigation Menu">
-           <div id="hamburger-menu"><span></span><span></span><span></span></div>
-        </button>
-        <!-- menu-wrapper -->
-        <ul class="menu-list accordion" role="navigation">
-           <li id="nav1" class="toggle accordion-toggle"> 
+      <button id="menu-wrapper" aria-label="Site Navigation Menu">
+          <div id="hamburger-menu"><span></span><span></span><span></span></div>
+      </button>
+      <!-- menu-wrapper -->
+      <ul class="menu-list accordion" role="navigation">
+          <li id="nav1" class="toggle accordion-toggle"> 
               <span class="icon-plus"></span>
-              <button class="menu-link" >Portfolio</button>
-           </li>
-           <!-- accordion-toggle -->
-           <ul class="menu-submenu accordion-content">
+              <button class="menu-link" >Portfolio<span class="postscript"> [Soon]</span></button>
+          </li>
+          <!-- accordion-toggle -->
+          <ul class="menu-submenu accordion-content">
               <li><a class="head" href="portfolio.html#ux">User Experience (UX)</a></li>
               <li><a class="head" href="portfolio.html#photography">Photography</a></li>
-           </ul>
-           <!-- menu-submenu accordon-content-->
-           <li id="nav2" class="toggle accordion-toggle"> 
+          </ul>
+          <!-- menu-submenu accordon-content-->
+          <li id="nav2" class="toggle accordion-toggle"> 
               <span class="icon-plus"></span>
               <button class="menu-link">About</button>
-           </li>
-           <!-- accordion-toggle -->
-           <ul class="menu-submenu accordion-content">
+          </li>
+          <!-- accordion-toggle -->
+          <ul class="menu-submenu accordion-content">
               <li><a class="head" href="about.html#bio">Bio</a></li>
               <li><a class="head" href="about.html#values">Values</a></li>
               <li><a class="head" href="about.html#interests">Interests</a></li>
               <li><a class="head" href="about.html#resume">Resume</a></li>
-           </ul>
-           <!-- menu-submenu accordon-content-->
-            <li id="nav3" class="toggle accordion-toggle"> 
+          </ul>
+          <!-- menu-submenu accordon-content-->
+          <li id="nav3" class="toggle accordion-toggle"> 
               <span class="icon-plus"></span>
               <button class="menu-link">Contact</button>
-           </li>
-           <!-- accordion-toggle -->
-            <ul class="menu-submenu accordion-content">
-                <li>
-                <form id="my-form" action="https://formspree.io/f/mgerydjp" method="POST">
-                    <label>Email:</label>
-                    <input type="email" name="email" placeholder="youremail@email.com" required>
-                    <label>Message:</label>
-                    <textarea type="text" name="message" placeholder="What's on your mind?" rows="2" required></textarea>
-                    <div class="g-recaptcha" data-sitekey="6Lc3Ak4bAAAAAK-k5bIg07Hd8zAAyEJuT2kexonw"></div> 
-                    <button id="my-form-button">Submit</button>
-                    <p id="my-form-status"></p>
-                </form>
-                </li>
-           </ul>
-        </ul>
-    </nav>
+          </li>
+          <!-- accordion-toggle -->
+          <ul class="menu-submenu accordion-content">
+              <li>
+                  <form id="my-form" action="https://formspree.io/f/mgerydjp" method="POST">
+                      <label>Email:</label>
+                      <input type="email" name="email" placeholder="youremail@email.com" required>
+                      <label>Message:</label>
+                      <textarea type="text" name="message" placeholder="What's on your mind?" rows="2" required></textarea>
+                      <div class="g-recaptcha" data-sitekey="6Lc3Ak4bAAAAAK-k5bIg07Hd8zAAyEJuT2kexonw"></div> 
+                      <button id="my-form-button">Submit</button>
+                      <p id="my-form-status"></p>
+                  </form>
+              </li>
+          </ul>
+          <!-- menu-submenu accordon-content-->
+          <li id="nav4" class="toggle accordion-toggle"> 
+              <button class="menu-link" onclick="location.href='https://mhdy.com';">Home</button>
+          </li>
+      </ul>
+  </nav>
 
     <!-- MHDY Logo -->
     <svg
@@ -116,30 +120,7 @@
     <div id="copyright">&copy; 2021</div>
 
     <!-- Hamburger Slide Accordion Menu by Anya Melnyk https://codepen.io/slyka85/pen/LbXYKQ -->
-    <script>
-        $(function() {
-            function slideMenu() {
-                var activeState = $("#menu-container .menu-list").hasClass("active");
-                $("#menu-container .menu-list").animate({top: activeState ? "0%" : "-100%"}, 400);
-            }
-
-            $("#menu-wrapper").click(function(event) {
-                event.stopPropagation();
-                $("#hamburger-menu").toggleClass("open");
-                $("#menu-container .menu-list").toggleClass("active");
-                slideMenu();
-
-                $("body").toggleClass("overflow-hidden");
-            });
-
-            $(".menu-list").find(".accordion-toggle").click(function() {
-                $(this).next().toggleClass("open").slideToggle("fast");
-                $(this).toggleClass("active-tab").find(".menu-link").toggleClass("active");
-                $(".menu-list .accordion-content").not($(this).next()).slideUp("fast").removeClass("open");
-                $(".menu-list .accordion-toggle").not(jQuery(this)).removeClass("active-tab").find(".menu-link").removeClass("active");
-            });
-        });
-    </script>
+    <script src="menu.js" async></script>
 
     <!-- Formspree.io Scripts -->
     <script>
