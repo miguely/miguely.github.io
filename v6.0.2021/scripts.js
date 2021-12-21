@@ -10,13 +10,11 @@ function cssLoader(cssfile)
   document.getElementsByTagName('HEAD')[0].appendChild(css_link);
 }
 
-function metaLoader(mname, mcontent, mproperty, mhttpequiv)
+function metaLoader(mname, mcontent)
 {
   var meta_tag = document.createElement('meta');
   if (mname) {meta_tag.name = mname};
   if (mcontent) {meta_tag.content = mcontent};
-  if (mproperty) {meta_tag.property = mproperty}; 
-  if (mhttpequiv) {meta_tag.httpEquiv = mhttpequiv};
   document.getElementsByTagName('HEAD')[0].appendChild(meta_tag);
 }
 
@@ -38,6 +36,5 @@ document.getElementById("main-nav").addEventListener("click", function() {
 /* 
  * INITIATE 
  */
-metaLoader('', 'IE=edge', '', 'X-UA-Compatible');
 metaLoader('viewport', 'width=device-width, initial-scale=1.0');
-cssLoader('styles.css'); /* Add Page Styles */
+// cssLoader('styles.css'); /* Add Page Styles */
