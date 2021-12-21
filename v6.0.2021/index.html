@@ -2,8 +2,338 @@
 <html lang="en-us" dir="ltr" >
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Musings about user experience and conversion rate optimization" />
-  <title>Musings on User Experience Design and Conversion Rate Optimization</title>
+  <meta name="description" content="Thoughts on User Experience Design and Conversion Rate Optimization" />
+  <title>Thoughts on User Experience Design and Conversion Rate Optimization</title>
+  <style>
+/*
+ * SITE STYLES 
+ */
+ :root {
+  --color-60a: #ffffff;
+  --color-60b: #dddddd;
+  --color-60c: #cccccc;
+  --color-30: #000000;
+  --color-30b: #333333;
+  --color-10: #FF5722;
+
+  --font-body: Normal 1.6rem/1.6 'Roboto', 'Arial Narrow', sans-serif; /* 16px equiv */
+  --font-display: Normal 2.4rem/1.2 'Roboto', Arial, sans-serif;
+
+  --grid: repeat(12, 1fr);
+}
+
+/* 
+ * DEFAULTS
+ */
+html
+{
+  color: var(--color-30);
+  font-size: 62.5%; /* 1rem = 10px */
+  margin: 0;
+  padding: 0;
+}
+
+body 
+{
+  font: var(--font-body);
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 
+{
+  font: var(--font-display);
+  margin: 0;
+  padding: 0;
+}
+
+section 
+{
+  background-color: var(--color-30b);
+  color: var(--color-60a);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: var(--grid);
+}
+
+
+/* 
+ * SITE STRUCTURE
+ */ 
+
+/* Top Bar */ 
+#top-bar {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  height: 5.6rem;
+  overflow: hidden;
+  position: relative;
+}
+  #top-bar #main-nav {
+    display: inline-block;
+    cursor: pointer;
+  }
+  #top-bar #main-nav a {
+    display: none;
+  }
+  #top-bar #main-nav #hamburger {
+    display: block;
+    font-size: 2rem;
+    padding: 1.6rem;
+		width: 5.6rem;
+  }
+    #hamburger div {
+      width: 32px;
+      height: 2px;
+      background-color: #fff;
+      margin: 8px 0;
+    }
+    #hamburger div:first-child {
+      margin-top: 0;
+    }
+    #hamburger div:last-child {
+      margin-bottom: 0;
+    }
+
+  #top-bar #logo {
+    align-items: center;
+		display: flex;
+		grid-column: 2 / span 2;
+    z-index: 1;
+  }
+    #top-bar #logo svg {
+      width: 9rem;
+    }  
+
+  #top-bar #social {
+		display: flex;
+		grid-column: 11 / span 2;
+    justify-content: flex-end;
+	}
+    #top-bar #social a {
+      margin: 1rem 0.75rem;
+    }
+    #top-bar #social a:last-child {
+      margin-right: 2rem;
+    }
+
+/* Footer */
+  #footer {
+    background-color: var(--color-30b);
+    color: var(--color-60a);
+  }
+  #footer #footer-links {
+    grid-column: 1 / 12;
+    list-style: none;
+    text-align: center;
+  }
+  #footer #footer-links li {
+    display: inline;
+  }
+  #footer #footer-links li:not(:last-child):after {
+    color: #999;
+    content: " | ";
+    margin: 0 1rem; padding: 0;
+  }
+  #footer #footer-links li a {
+    color: inherit;
+  }
+  #copyright {
+    background-color: var(--color-30b);
+    color: var(--color-60a);
+    position: absolute; bottom: 1.6rem; left: 2.4rem;
+  }
+
+
+/* 
+ * PAGE STYLES
+ */
+#home #hero-area {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  grid-template-rows: 20vh max-content max-content;
+  height: 90vh;
+  max-height: 90%;
+  z-index:1;
+  position:relative;
+}
+  #home #hero-area::before {
+    background-color: none;
+    background-image: url(asset/bg_boats.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    content: "";
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    opacity:0.4;
+    z-index:-1;
+  }
+  #feature-heading {
+    color: var(--color-10);
+    font-size: 3.2rem;
+		grid-column: 8 / 11;
+    grid-row: 2;
+    line-height: 3.4rem;
+    margin: 0 0 2.4rem;
+  }
+  #feature-summary {
+		grid-column: 8 / 12;
+    grid-row: 3;
+    margin: 0 0 1.6rem;
+  }
+  #feature-links {
+		grid-column: 8 / 12;
+  }
+    #feature-links a {
+      color: inherit;
+      margin: 0 1rem;
+    }
+    #feature-links a:nth-of-type(1) {
+      margin-left: 0;
+    }
+  #feature-results {
+    display: flex;
+		grid-column: 3 / span 5;
+    grid-row: 3;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+    #feature-results li {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGhlaWdodD0nOTYnIHdpZHRoPSc5Nic+PGNpcmNsZSBjeD0nNDgnIGN5PSc0OCcgcj0nMzgnIHN0cm9rZT0nI0ZGNTcyMicgc3Ryb2tlLXdpZHRoPScyMCcgZmlsbD0nd2hpdGUnIC8+PC9zdmc+"); /* Base64 encoded so it works in browsers: <svg xmlns='http://www.w3.org/2000/svg' height='96' width='96'><circle cx='48' cy='48' r='38' stroke='#FF5722' stroke-width='20' fill='white' /></svg> */
+      background-repeat: no-repeat;
+      margin: 0 1rem;
+      text-align: center;
+      width: 9.6rem; height: 10.4rem;
+    }
+      #feature-results li:last-child {
+        margin-right: 2rem;
+      }
+      #feature-results li span {
+        color: #000;
+        display: block;
+        font-weight: bold;
+        margin: 3.8rem auto 4.8rem;
+        vertical-align: middle;
+      }
+  #publish-date {
+    align-self: end;
+    color: var(--color-60a);
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+		grid-column: 8 / 12;
+    grid-row: 1;
+    line-height: 1.2rem;
+    margin: 0;
+  }
+#home #about-site {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  max-height: 32rem;  
+  padding: 8rem 0;
+}
+  #about-site h1 {
+    grid-column: 2 / 4;
+    text-transform: uppercase;
+  }
+  #about-site article {
+    column-count: 2;
+    grid-column: 4 / 12;
+  }
+  #about-site article p {
+    margin: 0 2rem 2rem 0;
+  }
+
+#home #about-me {
+  padding: 8rem 0;
+}
+  #about-me h2:nth-of-type(1) {
+    grid-column: 8 / 12;
+    opacity: 0.6;
+    margin: 2.4rem 0 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #about-me article:nth-of-type(1) {
+    grid-column: 8 / 12;
+    opacity: 0.8;
+  }
+  #about-me p {
+    margin-top: 0;
+    text-align: justify;
+  }
+
+  /* Homepage Contact Form */
+  #contact {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    position: relative; top: 2.4rem;
+    text-transform: uppercase;
+  }
+  #contact + form {
+    display: block;
+    grid-column: 4 / 8;
+    grid-row: 1 / span 2;
+  }
+  #contact + form label {
+    display: block;
+    margin: 0; padding: 0 0 1rem;
+    width: 40rem; 
+  }
+  #contact + form label span {
+    display: block;
+    font-size: 1rem;
+    width: 40rem;
+  }
+  #contact + form input[type=text] {
+    border: 1px #000 solid;
+    border-radius: 0.4rem;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 40rem;
+  }
+  #contact + form textarea {
+    border: 1px #000 solid;
+    border-radius: 0.4rem;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 40rem; height: 8rem;
+  }
+  #contact + form input[type=submit] {
+    background-color: var(--color-10);
+    border: 1px #fff solid;
+    border-radius: 0.4rem;
+    color: var(--color-60a);
+    display: block;
+    font-size: 1.6rem;
+    margin: 1rem 0; padding: 1rem 2rem;
+  }
+
+#article {}
+h1#title {}
+summary#overview {}
+#test {}
+#test section {}
+  #test h2 {}
+  #test figure {}
+  #test figcaption {}
+  #test p {}
+
+#result {}
+  #result h3 {}
+  #result p {}
+  #result figure {}
+    
+#next-step {}
+  #next-step h4 {}
+  #next-step p {}
+
+  </style>
 </head>
 <body id="home">
 <!-- JavaScript Template -->
@@ -43,13 +373,13 @@
         <a href="https://github.com/miguely/">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM8 16.1675C8 11.7639 11.5718 8.192 15.9755 8.192C20.3792 8.192 23.951 11.7639 24 16.1675C24 19.6905 21.7492 22.6752 18.5688 23.7516C18.1774 23.8006 18.0306 23.5559 18.0306 23.3602V21.1584C18.0306 20.4244 17.7859 19.9351 17.4924 19.6905C19.2538 19.4948 21.1132 18.8587 21.1132 15.7761C21.1132 14.8954 20.7706 14.1614 20.2814 13.6232C20.2852 13.6078 20.2906 13.5885 20.297 13.5655C20.3719 13.2953 20.5892 12.5111 20.1835 11.5192C20.1835 11.5192 19.4985 11.3235 17.9816 12.351C17.3456 12.2042 16.6605 12.1064 15.9755 12.1064C15.2905 12.1064 14.6055 12.1553 13.9694 12.351C12.4526 11.3235 11.7676 11.5192 11.7676 11.5192C11.3351 12.5763 11.6105 13.3975 11.6669 13.5657L11.6697 13.5743C11.1315 14.1614 10.8379 14.8464 10.8379 15.7272C10.8379 18.8097 12.6973 19.4948 14.4587 19.6905C14.263 19.8862 14.0184 20.2287 13.9694 20.7669C13.5291 20.9626 12.4037 21.3052 11.6697 20.0819C11.6697 20.0819 11.2294 19.299 10.4465 19.2501C10.4465 19.2501 9.66364 19.2501 10.3976 19.7394C10.3976 19.7394 10.9358 19.9841 11.2783 20.9137C11.2783 20.9137 11.7676 22.4795 13.9694 21.9902V23.3602C13.9694 23.5559 13.8226 23.8006 13.4312 23.7516C10.2997 22.6752 8 19.6905 8 16.1675Z" fill="white"/>
-            </svg>            
-        </a>
+            </svg>    
+        </a> 
     </nav>
 </section>
 <section id="hero-area">
-  <i id="publish-date">Published 10/1/2021</i>
   <h2 id="feature-heading">IMPROVED RETAIL CHECKOUT PAGE</h2>
+  <i id="publish-date">Published 10/1/2021</i>
   <article id="feature-summary">Article Summary goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed felis quam. Vivamus quis lacus congue, porta sapien non, elementum erat. Donec vitae condimentum ex. Praesent lacus libero, rutrum et laoreet in, maximus id nisi. Etiam ac massa lectus. Vestibulum malesuada urna luctus mollis vulputate. Ut a sem egestas, facilisis nisl in, ullamcorper libero. Sed in nisi sit amet massa placerat sagittis. Integer pretium eleifend tortor, interdum dictum tortor rutrum tempor.
   </article>
   <p id="feature-links"><a href="#">READ THIS ARTICLE</a> or <a href="#">SEE ALL ARTICLES.</a></p>
@@ -61,7 +391,7 @@
 </section>
 <!-- /JavaScript Template -->
 <section id="about-site">
-  <h1>About This Site</h1>
+  <h2>About This Site</h2>
   <article>
     <p>This site focuses on musings about user experience and conversion rate optimization. This site is built using basic HTML, CSS, and JavaScript because, well, I can. Donec scelerisque vehicula fermentum. Nullam mollis, lacus eu finibus imperdiet, mi tellus dignissim elit, id porttitor massa arcu in neque. Ut vel imperdiet eros. Donec scelerisque neque massa, vel feugiat nulla accumsan eget. Etiam vulputate elementum mi eget ultricies. Nulla facilisi. Curabitur sagittis arcu nec quam pellentesque convallis. Nulla semper interdum magna vitae tempor. Integer porta elit at augue ultrices, id tempor quam tempus. In velit leo, ultricies eu risus non, consequat rhoncus eros.</p>
     <p>xLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum placerat metus ut blandit. Donec feugiat enim et aliquam tincidunt. Curabitur et tincidunt libero. Nam consequat magna in justo egestas molestie at et nisl. Etiam eget sem sed sem maximus dictum. Nam tincidunt vitae arcu id placerat. Pellentesque tellus felis, maximus vel venenatis a, finibus et justo. Donec et placerat neque. Aliquam urna leo, rhoncus nec sapien ac, gravida rhoncus neque. Quisque a neque in leo molestie pharetra in ut diam. Duis lorem purus, fermentum eget lobortis ut, tristique eget ipsum. 195 words, 2 paragraphs.</p>
