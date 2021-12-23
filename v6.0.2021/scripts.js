@@ -74,7 +74,7 @@ function formHandler()
  * INITIATE 
  */
 htmlMetaLoader('viewport', 'width=device-width, initial-scale=1.0');
-// htmlCssLoader('styles.css'); /* Debug Only. Styles should be embedded on page via SSG. */
+htmlCssLoader('styles.css'); /* Debug Only. Styles should be embedded on page via SSG. */
 menuLoader();
 formHandler();
 
