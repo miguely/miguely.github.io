@@ -120,7 +120,7 @@ p {
     display: inline-block;
     margin: 0; padding: 0 4.8rem;
     position: absolute; top: var(--top-nav-height);
-    width: 32rem; height: 90vh;
+    width: 32rem; height: 100vh;
     z-index: 2;
   }
     #main-nav.show {
