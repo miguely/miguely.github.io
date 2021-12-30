@@ -69,9 +69,6 @@ p {
   section {
     grid-template-columns: none;
   }
-  section article {
-    margin-right: 0;
-  }
   section#top-bar {
     grid-template-columns: repeat(4, 1fr);
   }
