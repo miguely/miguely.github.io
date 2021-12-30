@@ -8,45 +8,55 @@
   --color-30: #000000;
   --color-30b: #333333;
   --color-10: #FF5722;
-
-  --font-body: Normal 1.6rem/1.6 'Roboto', 'Arial Narrow', sans-serif; /* 16px equiv */
-  --font-display: Normal 2.4rem/1.2 'Roboto', Arial, sans-serif;
-
-  --grid: repeat(12, 1fr);
 }
 
 /* 
  * DEFAULTS
  */
-html
-{
+html {
   color: var(--color-30);
   font-size: 62.5%; /* 1rem = 10px */
   margin: 0; padding: 0;
+  min-width: 358px;
 }
 
-body 
-{
-  font: var(--font-body);
+body {
   margin: 0; padding: 0;
   position: relative;
+  width: 100%; height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 
-{
-  font: var(--font-display);
+* {
+  font-family: 'Roboto', 'Arial Narrow', sans-serif;
+  font-size: 1.6rem; /* 16px equiv */
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2; 
   margin: 0;
   padding: 0;
 }
 
-section 
-{
+section {
   background-color: var(--color-30b);
   color: var(--color-60a);
   display: grid;
   gap: 16px;
-  grid-template-columns: var(--grid);
+  grid-template-columns: repeat(12, 1fr);
 }
+  @media only screen and (max-width: 768px) {
+    section {
+      grid-template-columns: none;
+    }
+    section#top-bar {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
 
 /* 
@@ -72,8 +82,8 @@ section
 #top-bar {
   background-color: var(--color-30);
   color: var(--color-60a);
-  height: 5.6rem;
-  position: sticky;
+  position: fixed;
+  width: 100%; height: 5.6rem;
   z-index: 10;
 }
   #top-bar #hamburger {
@@ -85,10 +95,9 @@ section
     width: 5.6rem; height: 5.6rem;
   }
     #hamburger div {
-      width: 32px;
-      height: 2px;
       background-color: var(--color-60a);
       margin: 8px auto;
+      width: 32px; height: 2px; 
     }
       #hamburger div:first-child {
         margin-top: 0;
@@ -104,80 +113,81 @@ section
     width: 32rem; height: 90vh;
     z-index: 2;
   }
-  #top-bar #main-nav.show {
-    left: 0;
-    transition: left .4s;
-  }
-  #top-bar #main-nav.hide {
-    left: -48rem;
-    transition: left .4s;
-  }
-  #top-bar #main-nav h3 {
-    color: var(--color-60c);
-    font-size: 2.4rem;
-    margin: 0; padding: 4.8rem 0 1.6rem;
-    text-transform: uppercase;
-  }
-  #top-bar #main-nav ul {
-    display: block;
-    list-style: none;
-    margin: 0; padding: 0;
-  }
-  #top-bar #main-nav li {
-    display: block;
-    margin: 0; padding: 0;
-    position: relative;
-  }
-  #top-bar #main-nav li a {
-    color: inherit;
-    display: block;
-    line-height: 1.6rem;
-    margin: 0.4rem 0; padding: 0.4rem 0;
-  }
-    #top-bar #main-nav li a:focus:after,  
-    #top-bar #main-nav li a:hover:after {
-      color: var(--color-10);
-      content: "\00BB";
-      display: inline-block;
-      font-size: 2rem;
-      position: absolute; top: 0.2rem; left: -1.6rem;
-      text-decoration: none;
+    #main-nav.show {
+      left: 0;
+      transition: left .4s;
     }
-    #top-bar #main-nav li a span {
+    #main-nav.hide {
+      left: -48rem;
+      transition: left .4s;
+    }
+    #main-nav h3 {
       color: var(--color-60c);
-      display: inline-block;
-      font-size: 1.2rem;
-      margin: 0; padding: 0;
-      opacity: 0.8;
-      text-decoration: none;
-      width: 100%; /* Needed in order to force the inline-block element to a new line. Text-Decoration:none will not work unless inline-block. Content white-space pre wrap doesn't work. */
+      font-size: 2.4rem;
+      margin: 0; padding: 4.8rem 0 1.6rem;
+      text-transform: uppercase;
     }
-  #main-nav .nav-close {
-    background-color: var(--color-30);
-    border: none;
-    cursor: pointer;
-    color: var(--color-60a);
-    display: inline-block;
-    position: absolute;
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin: 0; padding: 0;
-    top: 3.2rem; right: 2.4rem;
-    width: 5.6rem; height: 5.6rem;
-  }
-  #main-nav .nav-close:hover, 
-   #main-nav .nav-close:focus {
-    background-color: var(--color-10);
-   } 
+    #main-nav ul {
+      display: block;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    #main-nav li {
+      display: block;
+      margin: 0; padding: 0;
+      position: relative;
+    }
+    #main-nav li a {
+      color: inherit;
+      display: block;
+      line-height: 1.6rem;
+      margin: 0.4rem 0; padding: 0.4rem 0;
+    }
+      #main-nav li a:focus:after,  
+      #main-nav li a:hover:after {
+        color: var(--color-10);
+        content: "\00BB";
+        display: inline-block;
+        font-size: 2rem;
+        position: absolute; top: 0.2rem; left: -1.6rem;
+        text-decoration: none;
+      }
+      #main-nav li a span {
+        color: var(--color-60c);
+        display: inline-block;
+        font-size: 1.2rem;
+        margin: 0; padding: 0;
+        opacity: 0.8;
+        text-decoration: none;
+        width: 100%; /* Needed in order to force the inline-block element to a new line. Text-Decoration:none will not work unless inline-block. Content white-space pre wrap doesn't work. */
+      }
+    #main-nav .nav-close {
+      background-color: var(--color-30);
+      border: none;
+      cursor: pointer;
+      color: var(--color-60a);
+      display: inline-block;
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 0; padding: 0;
+      position: absolute; top: 3.2rem; right: 2.4rem;
+      width: 5.6rem; height: 5.6rem;
+    }
+    #main-nav .nav-close:hover, 
+    #main-nav .nav-close:focus {
+      background-color: var(--color-10);
+    } 
   #top-bar #logo {
-    align-items: center;
 		display: flex;
 		grid-column: 2 / span 2;
+    width: 9rem;
     z-index: 1;
   }
-    #top-bar #logo svg {
-      width: 9rem;
-    }  
+    @media only screen and (max-width: 768px) {
+      #top-bar #logo {
+        margin: 0 auto;
+      }
+    }
   #top-bar #social {
 		display: flex;
 		grid-column: 11 / span 2;
@@ -189,33 +199,48 @@ section
     #top-bar #social a:last-child {
       margin-right: 2rem;
     }
+    @media only screen and (max-width: 768px) {
+      #top-bar #social {
+        grid-column: 4;
+      }
+    }
+
 
 /* Footer */
-  #footer {
-    background-color: var(--color-30b);
-    color: var(--color-60a);
-  }
-  #footer #footer-links {
-    grid-column: 1 / 12;
-    list-style: none;
-    text-align: center;
-  }
-  #footer #footer-links li {
+#footer {
+  background-color: var(--color-30b);
+  color: var(--color-60c);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.6rem 0;
+}
+#footer #footer-links {
+  flex-grow: 1;
+  list-style: none;
+  margin: 0 2.4rem; padding: 0;
+  text-align: left;
+}
+  #footer-links li {
     display: inline;
   }
-  #footer #footer-links li:not(:last-child):after {
-    color: #999;
+  #footer-links li:not(:last-child):after {
     content: " | ";
     margin: 0 1rem; padding: 0;
   }
-  #footer #footer-links li a {
+  #footer-links li a {
     color: inherit;
   }
-  #copyright {
-    background-color: var(--color-30b);
-    color: var(--color-60a);
-    position: absolute; bottom: 1.6rem; left: 2.4rem;
-  }
+#footer #copyright {
+  margin: 0 2.4rem; padding: 0;
+  text-align: right;
+}
+@media only screen and (max-width: 768px) {
+  #footer #footer-links, 
+    #footer #copyright {
+      text-align: center;
+      width: 100%;
+    }
+}
 
 
 /* 
@@ -225,21 +250,19 @@ section
   background-color: var(--color-30);
   color: var(--color-60a);
   grid-template-rows: 20vh max-content max-content;
-  height: 90vh;
-  max-height: 90%;
-  z-index:1;
-  position:relative;
+  min-height: 90vh;
+  position: relative;
+  z-index: 1;
 }
   #home #main::before {
-    background-color: none;
     background-image: url(asset/bg_boats.jpg);
-    background-position: left top;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     content: "";
+    opacity:0.4;
     position:absolute; top:0; left:0;
     width:100%; height:100%;
-    opacity:0.4;
     z-index:-1;
   }
   #feature-heading {
@@ -250,13 +273,26 @@ section
     line-height: 3.4rem;
     margin: 0 0 2.4rem;
   }
+  #feature-published {
+    align-self: end;
+    color: var(--color-60a);
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+		grid-column: 8 / 12;
+    grid-row: 1;
+    line-height: 1.2rem;
+    margin: 0;
+  }
   #feature-summary {
 		grid-column: 8 / 12;
     grid-row: 3;
     margin: 0 0 1.6rem;
   }
+  #feature-summary p {
+    margin-top: 0;
+  }
   #feature-links {
-		grid-column: 8 / 12;
   }
     #feature-links a {
       color: inherit;
@@ -276,9 +312,9 @@ section
     #feature-results li {
       background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGhlaWdodD0nOTYnIHdpZHRoPSc5Nic+PGNpcmNsZSBjeD0nNDgnIGN5PSc0OCcgcj0nMzgnIHN0cm9rZT0nI0ZGNTcyMicgc3Ryb2tlLXdpZHRoPScyMCcgZmlsbD0nd2hpdGUnIC8+PC9zdmc+"); /* Base64 encoded so it works in browsers: <svg xmlns='http://www.w3.org/2000/svg' height='96' width='96'><circle cx='48' cy='48' r='38' stroke='#FF5722' stroke-width='20' fill='white' /></svg> */
       background-repeat: no-repeat;
-      margin: 0 1rem;
+      margin: 0 1rem 4rem;
       text-align: center;
-      width: 9.6rem; height: 10.4rem;
+      width: 9.6rem;
     }
       #feature-results li:last-child {
         margin-right: 2rem;
@@ -289,21 +325,36 @@ section
         font-weight: bold;
         margin: 3.8rem auto 4.8rem;
       }
-  #publish-date {
-    align-self: end;
-    color: var(--color-60a);
-    display: block;
-    font-size: 1.2rem;
-    font-style: normal;
-		grid-column: 8 / 12;
-    grid-row: 1;
-    line-height: 1.2rem;
-    margin: 0;
+
+  @media only screen and (max-width: 768px) {
+    #main {
+      text-align: center;
+      grid-auto-rows: minmax(min-content, max-content);
+    }
+    #feature-heading {
+      grid-column: 1/-1; 
+      grid-row: 2;
+      text-align: center;
+    }
+    #feature-published {
+      grid-column: 1/-1; 
+      grid-row: 1;
+    }
+    #feature-summary {
+      grid-column: 1/-1; 
+      grid-row: 4;
+      margin: 0 2.4rem;
+    }
+    #feature-results {
+      grid-column: 1/-1; 
+      grid-row: 3; 
+      justify-content: space-evenly;
+    }
   }
+
 #home #about-site {
   background-color: var(--color-30);
   color: var(--color-60a);
-  max-height: 32rem;  
   padding: 8rem 0;
 }
   #about-site h2 {
@@ -317,69 +368,90 @@ section
   #about-site article p {
     margin: 0 2rem 2rem 0;
   }
+  @media only screen and (max-width: 768px) {
+    #about-site {
+      grid-column: 1/-1;
+    }
+    #about-site h2,
+    #about-site article {
+      align-self: center;
+      column-count: 1;
+      grid-column: 1/-1;
+      grid-row: auto;
+      margin: 0 2.4rem;
+      text-align: center;
+    }
+  }
 
 #home #about-me {
+  grid-template-rows: unset;
   padding: 8rem 0;
 }
-  #about-me h2:nth-of-type(1) {
-    grid-column: 8 / 12;
-    grid-row: 1;
-    opacity: 0.6;
-    /* margin: 2.4rem 0 0; */
+  #about-me h2 {
+    grid-column: 2 / 12;
+    grid-row: auto;
+    opacity: 0.8;
     text-align: center;
     text-transform: uppercase;
   }
-  #about-me article:nth-of-type(1) {
-    grid-column: 8 / 12;
-    grid-row: 1;
-    margin: 4rem 0 0;
+  #about-me article {
+    grid-column: 2 / 12;
     opacity: 0.8;
+    text-align: justify;
   }
   #about-me p {
     margin-top: 0;
-    text-align: justify;
+  }
+  @media only screen and (max-width: 768px) {
+    #about-me h2, 
+    #about-me article {
+      grid-column: 1/-1;
+      margin: 0 2.4rem;
+      text-align: center;
+    }
   }
 
   /* Homepage Contact Form */
-  #contact {
+  #contact-me {
+    padding: 8rem 0;
+  }
+  #contact-me h2 {
     grid-column: 2 / 4;
     grid-row: 1;
     position: relative; top: 2.4rem;
     text-transform: uppercase;
   }
-  #contact + form {
+  #contact-me form {
     display: block;
     grid-column: 4 / 8;
     grid-row: 1 / span 2;
     position: relative;
   }
-  #contact + form label {
+  #contact-me form label {
     display: block;
     margin: 0; padding: 0 0 1rem;
-    width: 40rem; 
   }
-  #contact + form label span {
+  #contact-me form label span {
     display: block;
     font-size: 1.2rem;
-    width: 40rem;
   }
-  #contact + form input[type=email] {
+  #contact-me form input[type=email] {
     border: 1px #000 solid;
     border-radius: 0.4rem;
     display: block;
     font-size: 1.6rem;
     padding: 1rem;
-    width: 40rem;
+    width: 38rem;
   }
-  #contact + form textarea {
+  #contact-me form textarea {
     border: 1px #000 solid;
     border-radius: 0.4rem;
     display: block;
     font-size: 1.6rem;
     padding: 1rem;
-    width: 40rem; height: 8rem;
+    width: 38rem; height: 8rem;
   }
-  #contact + form input[type=submit] {
+  #contact-me form input[type=submit] {
     background-color: var(--color-10);
     border: 1px #fff solid;
     border-radius: 0.4rem;
@@ -389,7 +461,7 @@ section
     font-size: 2.4rem;
     margin: 1rem 0; padding: 1rem 2rem;
   }
-    #contact + form #my-form-button.fade-In {
+    #contact-me form #my-form-button.fade-In {
       animation: fadeIn ease-in 10s;
       -webkit-animation: fadeIn ease-in 10s;
       -moz-animation: fadeIn ease-in 10s;
@@ -420,6 +492,27 @@ section
         0% {opacity:0;}
         100% {opacity:1;}
       }
-  #contact + form #my-form-status {
+  #contact-me form #my-form-status {
     font-size: 2.4rem;
+  }
+  @media only screen and (max-width: 768px) {
+    #contact-me {
+      justify-content: center;
+      text-align: center;
+    }
+    #contact-me h2,
+    #contact-me form {
+      grid-column: 1/-1;
+      grid-row: auto;
+      margin: 0 auto;
+      top: 0;
+    }
+    #contact-me form input[type=email],
+    #contact-me form input[type=submit], 
+    #contact-me form label span,
+    #contact-me form p,
+    #contact-me form textarea {
+      margin: 0 auto;
+      width: 32rem; 
+    }
   }
