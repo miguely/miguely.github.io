@@ -12,6 +12,9 @@
   --font-body: 'Roboto', 'Arial Narrow', sans-serif;
   --font-display: 'Roboto', Arial, sans-serif;
   --font-data-display: 'Impact', sans-serif;
+
+  --top-nav-height: 5.6rem;
+  --section-pad: 10vh;
 }
 
 /* 
@@ -90,7 +93,7 @@ p {
   background-color: var(--color-30);
   color: var(--color-60a);
   position: fixed;
-  width: 100%; height: 5.6rem;
+  width: 100%; height: var(--top-nav-height);
   z-index: 10;
 }
   #top-bar #hamburger {
@@ -99,7 +102,7 @@ p {
     cursor: pointer;
     display: block;
     margin: 0; padding: 0;
-    width: 5.6rem; height: 5.6rem;
+    width: var(--top-nav-height); height: var(--top-nav-height);
   }
     #hamburger div {
       background-color: var(--color-60a);
@@ -116,7 +119,7 @@ p {
     background-color:var(--color-30);
     display: inline-block;
     margin: 0; padding: 0 4.8rem;
-    position: absolute; top: 5.6rem;
+    position: absolute; top: var(--top-nav-height);
     width: 32rem; height: 90vh;
     z-index: 2;
   }
@@ -256,8 +259,8 @@ p {
 #home #main {
   background-color: var(--color-30);
   color: var(--color-60a);
-  grid-template-rows: 30vh max-content max-content;
-  min-height: 90vh;
+  grid-template-rows: 20vh auto auto minmax(var(--section-pad),auto);
+  padding-top: var(--top-nav-height);
   position: relative;
   z-index: 1;
 }
@@ -294,7 +297,7 @@ p {
   #feature-summary {
 		grid-column: 8 / 12;
     grid-row: 3;
-    margin: 0 0 1.6rem;
+    padding: 0 0 10vh;
   }
   #feature-links {
   }
@@ -367,7 +370,7 @@ p {
 #home #about-site {
   background-color: var(--color-30);
   color: var(--color-60a);
-  padding: 8rem 0;
+  padding: var(--section-pad) 0;
 }
   #about-site h2 {
     grid-column: 2 / 4;
@@ -394,7 +397,7 @@ p {
 
 #home #about-me {
   grid-template-rows: unset;
-  padding: 8rem 0 0;
+  padding: var(--section-pad) 0 0;
 }
 #about-me h2 {
   grid-column: 2 / 4;
@@ -416,7 +419,7 @@ p {
 
   /* Homepage Contact Form */
   #contact-me {
-    padding: 8rem 0;
+    padding: var(--section-pad) 0;
   }
   #contact-me h2 {
     grid-column: 2 / 4;
