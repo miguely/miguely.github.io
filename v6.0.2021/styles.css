@@ -256,7 +256,7 @@ p {
 #home #main {
   background-color: var(--color-30);
   color: var(--color-60a);
-  grid-template-rows: 20vh max-content max-content;
+  grid-template-rows: 30vh max-content max-content;
   min-height: 90vh;
   position: relative;
   z-index: 1;
