@@ -2,44 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mhdy.com</title>
-    <link>https://mhdy.com//c/</link>
+    <link>https://mhdy.com/</link>
     <description>Recent content on mhdy.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://mhdy.com//c/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Improved retail checkout page</title>
-      <link>https://mhdy.com//c/article1/</link>
-      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mhdy.com//c/article1/</guid>
-      <description>Improved retail checkout page Published 1/10/2022 Summary Article Summary goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed felis quam. Vivamus quis lacus congue, porta sapien non, elementum erat. Donec vitae condimentum ex. Praesent lacus libero, rutrum et laoreet in, maximus id nisi. Etiam ac massa lectus. Vestibulum malesuada urna luctus mollis vulputate. Ut a sem egestas, facilisis nisl in, ullamcorper libero. Sed in nisi sit amet massa placerat sagittis.</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://mhdy.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Privacy Policy</title>
-      <link>https://mhdy.com//c/privacy_policy/</link>
+      <link>https://mhdy.com/privacy_policy/</link>
       <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mhdy.com//c/privacy_policy/</guid>
-      <description>Afraid of cookies? Don&amp;rsquo;t like cookies? Use your browser to block them. I don&amp;rsquo;t store any private data by default. I do use 3rd party analytics software such as Google Analytics which is widely used on the internet. For more information on Google Analytics cookie policy, look it up online.</description>
-    </item>
-    
-    <item>
-      <title>My redesign using HUGO Static Site Generator</title>
-      <link>https://mhdy.com//c/article2/</link>
-      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mhdy.com//c/article2/</guid>
-      <description>My redesign using HUGO Static Site Generator Published 1/12/2022 Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros lacus, porttitor et leo nec, imperdiet porta libero. Phasellus nec sem cursus, tincidunt velit vitae, porttitor neque. Maecenas nec dapibus lectus, vitae dictum purus. Sed consectetur sodales metus, sed congue lectus congue eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dui, elementum eu consectetur eget, tincidunt nec quam.</description>
+      <guid>https://mhdy.com/privacy_policy/</guid>
+      <description>Don&amp;rsquo;t like cookies? Use your browser to block them. My site doesn&amp;rsquo;t collect or store any private data by default. I do use 3rd party analytics software such as Google Analytics which is common online. For more information on Google Analytics and their cookie policies, be sure to look it up online.
+Technology Used  Google Analytics  Email Forms If you use the contact form, keep in mind:
+ Don&amp;rsquo;t send sensitive information, the submission is routed through 3rd party email providers before it ends up in my regular inbox.</description>
     </item>
     
     <item>
       <title>Accessibility Statement</title>
-      <link>https://mhdy.com//c/accessibility_statement/</link>
+      <link>https://mhdy.com/accessibility_statement/</link>
       <pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://mhdy.com//c/accessibility_statement/</guid>
-      <description>Hellow World Lorem Ipsum goes here. Hubba hubba.</description>
+      <guid>https://mhdy.com/accessibility_statement/</guid>
+      <description>Accessibility Statement MHDY.com is committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. I am actively working to increase the accessibility and usability of this website and in doing so adhere to many of the available standards and guidelines.
+This website endeavours to conform to WCAG 2.1 AA; or level Double-A of the World Wide Web Consortium (W3C) Web Content Accessibility Guidelines 2.</description>
+    </item>
+    
+    <item>
+      <title>Improved retail checkout page</title>
+      <link>https://mhdy.com/article1/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mhdy.com/article1/</guid>
+      <description>Improved retail checkout page Published 1/10/2022 Summary Article Summary goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed felis quam. Vivamus quis lacus congue, porta sapien non, elementum erat. Donec vitae condimentum ex. Praesent lacus libero, rutrum et laoreet in, maximus id nisi. Etiam ac massa lectus. Vestibulum malesuada urna luctus mollis vulputate. Ut a sem egestas, facilisis nisl in, ullamcorper libero. Sed in nisi sit amet massa placerat sagittis.</description>
+    </item>
+    
+    <item>
+      <title>My redesign using HUGO Static Site Generator</title>
+      <link>https://mhdy.com/article2/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mhdy.com/article2/</guid>
+      <description>My redesign using HUGO Static Site Generator Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros lacus, porttitor et leo nec, imperdiet porta libero. Phasellus nec sem cursus, tincidunt velit vitae, porttitor neque. Maecenas nec dapibus lectus, vitae dictum purus. Sed consectetur sodales metus, sed congue lectus congue eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dui, elementum eu consectetur eget, tincidunt nec quam. Morbi scelerisque, est eget egestas malesuada, risus ante sagittis tortor, at luctus ante tellus eu lorem.</description>
     </item>
     
   </channel>

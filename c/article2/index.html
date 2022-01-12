@@ -23,7 +23,8 @@
 
   --grid-gap: 1.6rem;
   --top-nav-height: 5.6rem;
-  --section-pad: 10vh;
+  --main-pad: 14rem;
+  --section-pad: 10rem;
 }
 
  
@@ -62,24 +63,23 @@ section {
   color: var(--color-60a);
   display: grid;
   gap: var(--grid-gap);
-  grid-template-columns: repeat(12, 1fr);
 }
-
-section article {
-  margin-right: 1.6rem;
-}
-
-p {
-  margin: 0 0 2rem;
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 769px) {
   section {
-    grid-template-columns: none;
+    grid-template-columns: repeat(12, 1fr);
   }
+  section article {
+    margin-right: 1.6rem;
+  }
+}
+@media only screen and (max-width: 768px) {
   section#top-bar {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+p {
+  margin: 0;
 }
 
   
@@ -693,7 +693,7 @@ p {
   }
   #next-steps article {
     columns: 2;
-    grid-column: 2 / -2;
+    grid-column: 2 / -4;
   }
 
 @media only screen and (max-width: 768px) {
@@ -787,10 +787,89 @@ p {
       margin: 0 2.4rem;
     }
 }
+
+ 
+
+.single #main {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  padding: var(--main-pad) 2.4rem;
+  position: relative;
+  z-index: 1;
+}
+  .single #main::before {
+    background-image: url("/asset/bg_boats.jpg");
+    background-attachment: fixed;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    opacity:0.3;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index:-1;
+  }
+
+.single #main em:first-of-type {
+  display: block;
+  font-size: 1.2rem;
+  font-style: normal;
+  order: -1;
+  text-align: center;
+}
+
+.single #main h1:first-of-type {
+  align-self: end;
+  color: var(--color-10);
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+  margin: 0 0 3.2rem;
+  text-align: center;
+}
+
+.single #main :is(h2,h3,h4,h5,h6) {
+  font-size: 1.6rem;
+}
+
+.single #main p img {
+  float: right;
+  margin: 0 1.6rem; 
+  width: 24rem;
+}
+
+.single #main ul {
+  margin: 0 0 1.6rem;
+}
+
+@media only screen and (min-width: 769px) {
+  .single #main {
+    grid-auto-rows: min-content;
+    padding: var(--main-pad) 0 var(--section-pad);
+  }
+  .single #main * {
+    grid-column: 2 / 8;
+
+  }
+  .single #main em:first-of-type {
+    margin: 0;
+    text-align: left;
+  }
+  .single #main h1:first-of-type {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 425px){
+  .single #main p img {
+    display: block;
+    float: none; 
+    margin: 1.6rem auto;
+  }
+}
 </style>
 </head>
 
-<body class="article">
+<body class="single">
 <a id="skip-to-content-link" href="#main">Skip to content</a>
 <section id="top-bar">
   <button id="hamburger">
@@ -803,9 +882,9 @@ p {
     <ul>
       
       
-      <li><a href="/c/article1/" title="Improved retail checkout page">Improved retail checkout page<span>1/12/2022</span></a></li>
+      <li><a href="/article1/" title="Improved retail checkout page">Improved retail checkout page<span>1/12/2022</span></a></li>
       
-      <li class="urhere"><a href="/c/article2/" title="My redesign using HUGO Static Site Generator">My redesign using HUGO Static Site Generator<span>1/10/2022</span></a></li>
+      <li class="urhere"><a href="/article2/" title="My redesign using HUGO Static Site Generator">My redesign using HUGO Static Site Generator<span>1/10/2022</span></a></li>
       
     </ul>
   </nav>
@@ -844,16 +923,16 @@ p {
 </section>
 
 <section id="main">
-<h1>My redesign using HUGO Static Site Generator</h1>
-<p><em>Published 1/12/2022</em>
-<strong>Summary</strong>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros lacus, porttitor et leo nec, imperdiet porta libero. Phasellus nec sem cursus, tincidunt velit vitae, porttitor neque. Maecenas nec dapibus lectus, vitae dictum purus. Sed consectetur sodales metus, sed congue lectus congue eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dui, elementum eu consectetur eget, tincidunt nec quam. Morbi scelerisque, est eget egestas malesuada, risus ante sagittis tortor, at luctus ante tellus eu lorem. Nulla commodo, est et dapibus viverra, tortor nisl aliquam nisl, nec maximus velit leo in felis. Ut eu lorem eleifend sem congue tincidunt vel sed justo. Nam ut euismod sem, eget dapibus mauris. Maecenas arcu neque, mattis ut pulvinar sit amet, vestibulum a sapien. Quisque pulvinar facilisis congue. Aliquam commodo, massa quis maximus malesuada, turpis mi lobortis nisl, ut pulvinar lectus lorem eu nulla. In hac habitasse platea dictumst. Cras faucibus a felis in pharetra.</p>
-<p>Nam facilisis, leo in pellentesque auctor, est magna molestie ante, eget venenatis nisi tellus sed odio. Morbi a sem nec purus pellentesque elementum. Proin rutrum vel lorem vel pretium. Sed mauris dolor, varius a ultrices ac, scelerisque at quam. Aenean blandit ornare lorem sit amet congue. Mauris suscipit nunc rhoncus, scelerisque tortor ut, consectetur erat. Fusce faucibus ultrices fringilla. Phasellus elit quam, tristique in nunc nec, pellentesque fermentum ligula. Cras diam odio, tincidunt sed diam eu, elementum rhoncus dolor. Integer iaculis condimentum dolor at blandit.</p>
-<p>Vivamus non ultricies dui. Praesent pellentesque sodales nibh. Cras ut nulla lobortis, condimentum lacus interdum, lacinia urna. Nam enim magna, interdum vitae mauris finibus, maximus porttitor lacus. Aenean vestibulum, sem quis bibendum consequat, turpis massa finibus tellus, et fermentum ex tellus vehicula lacus. Cras in varius turpis. Praesent commodo suscipit purus, et vehicula ipsum mollis et. Pellentesque nibh urna, imperdiet vel posuere vel, tincidunt sed felis. Cras fringilla, dolor at placerat varius, lorem erat tincidunt erat, ac varius purus erat sed velit. Phasellus iaculis, est in hendrerit ornare, ipsum nunc suscipit quam, sit amet auctor felis est ac ligula. In hac habitasse platea dictumst. Fusce non turpis metus. In consectetur ipsum orci, placerat blandit nunc luctus eget. Nunc lacinia metus non augue facilisis efficitur.</p>
-<p>Nullam ac vulputate nulla. Nulla fringilla dignissim justo sit amet sagittis. Proin sit amet ultricies ipsum. Donec interdum efficitur urna, sit amet scelerisque metus interdum in. Aliquam porttitor augue nisi, non placerat felis viverra varius. Nunc aliquet id eros ut facilisis. Nulla mattis urna non metus efficitur congue. Duis fermentum, erat vitae bibendum hendrerit, massa velit consequat lorem, posuere scelerisque dui nunc ut mi. Aenean ullamcorper eros magna, ac aliquet diam interdum in. Sed iaculis porta nibh vitae rhoncus. Ut finibus, purus sit amet condimentum finibus, lorem augue congue felis, vitae porttitor nunc dui eu urna.</p>
+  <h1>My redesign using HUGO Static Site Generator</h1>
+  <em class="datepub">Published 1/10/2022</em>
+<h2>My redesign using HUGO Static Site Generator</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros lacus, porttitor et leo nec, imperdiet porta libero. Phasellus nec sem cursus, tincidunt velit vitae, porttitor neque. Maecenas nec dapibus lectus, vitae dictum purus. Sed consectetur sodales metus, sed congue lectus congue eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lacus dui, elementum eu consectetur eget, tincidunt nec quam. Morbi scelerisque, est eget egestas malesuada, risus ante sagittis tortor, at luctus ante tellus eu lorem. Nulla commodo, est et dapibus viverra, tortor nisl aliquam nisl, nec maximus velit leo in felis. Ut eu lorem eleifend sem congue tincidunt vel sed justo. Nam ut euismod sem, eget dapibus mauris. Maecenas arcu neque, mattis ut pulvinar sit amet, vestibulum a sapien. Quisque pulvinar facilisis congue. Aliquam commodo, massa quis maximus malesuada, turpis mi lobortis nisl, ut pulvinar lectus lorem eu nulla. In hac habitasse platea dictumst. Cras faucibus a felis in pharetra.</p>
+<p><img src="/asset/bg_boats.jpg" />Nam facilisis, leo in pellentesque auctor, est magna molestie ante, eget venenatis nisi tellus sed odio. Morbi a sem nec purus pellentesque elementum. Proin rutrum vel lorem vel pretium. Sed mauris dolor, varius a ultrices ac, scelerisque at quam. Aenean blandit ornare lorem sit amet congue. Mauris suscipit nunc rhoncus, scelerisque tortor ut, consectetur erat. Fusce faucibus ultrices fringilla. Phasellus elit quam, tristique in nunc nec, pellentesque fermentum ligula. Cras diam odio, tincidunt sed diam eu, elementum rhoncus dolor. Integer iaculis condimentum dolor at blandit.</p>
+<p><img src="/asset/bg_boats.jpg" />Vivamus non ultricies dui. Praesent pellentesque sodales nibh. Cras ut nulla lobortis, condimentum lacus interdum, lacinia urna. Nam enim magna, interdum vitae mauris finibus, maximus porttitor lacus. Aenean vestibulum, sem quis bibendum consequat, turpis massa finibus tellus, et fermentum ex tellus vehicula lacus. Cras in varius turpis. Praesent commodo suscipit purus, et vehicula ipsum mollis et. Pellentesque nibh urna, imperdiet vel posuere vel, tincidunt sed felis. Cras fringilla, dolor at placerat varius, lorem erat tincidunt erat, ac varius purus erat sed velit. Phasellus iaculis, est in hendrerit ornare, ipsum nunc suscipit quam, sit amet auctor felis est ac ligula. In hac habitasse platea dictumst. Fusce non turpis metus. In consectetur ipsum orci, placerat blandit nunc luctus eget. Nunc lacinia metus non augue facilisis efficitur.</p>
+<p><img src="/asset/bg_boats.jpg" /> Nullam ac vulputate nulla. Nulla fringilla dignissim justo sit amet sagittis. Proin sit amet ultricies ipsum. Donec interdum efficitur urna, sit amet scelerisque metus interdum in. Aliquam porttitor augue nisi, non placerat felis viverra varius. Nunc aliquet id eros ut facilisis. Nulla mattis urna non metus efficitur congue. Duis fermentum, erat vitae bibendum hendrerit, massa velit consequat lorem, posuere scelerisque dui nunc ut mi. Aenean ullamcorper eros magna, ac aliquet diam interdum in. Sed iaculis porta nibh vitae rhoncus. Ut finibus, purus sit amet condimentum finibus, lorem augue congue felis, vitae porttitor nunc dui eu urna.</p>
 <p>Aliquam tincidunt lorem at molestie mollis. In consectetur nisl vitae nunc tincidunt eleifend. Praesent lobortis pharetra augue. Duis ipsum turpis, blandit quis commodo et, fermentum vitae massa. In ut fringilla leo. Vivamus eget maximus ligula. Nunc tortor est, tincidunt eget fermentum eget, vulputate et velit. Maecenas nulla ligula, volutpat in bibendum eget, dapibus id diam. Curabitur ultrices mauris dolor, ut lobortis sapien condimentum sed. Mauris auctor, mi ut cursus gravida, sem sapien ultricies orci, id malesuada ex leo nec arcu. Suspendisse consectetur, nibh et suscipit sagittis, ante urna interdum orci, id rutrum neque metus vel lectus. Maecenas finibus, metus a laoreet sollicitudin, purus est efficitur arcu, accumsan luctus tortor quam in quam. Curabitur tincidunt, nisl quis rutrum fermentum, enim diam cursus nisi, vel cursus dui urna et orci.</p>
+
 </section>
-<section class="ad_h">AD SECTION</section>
 
 <section id="contact-me">
   <h2>Contact me</h2>
@@ -873,9 +952,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eros lacus, portti
 
 <section id="footer">
   <ul id="footer-links">
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Accessibility</a></li>
-    <li><a href="#">Sitemap</a></li>
+    
+    
+    <li><a href="/privacy_policy/" title="Privacy Policy">Privacy Policy</a></li>
+    
+    <li><a href="/accessibility_statement/" title="Accessibility Statement">Accessibility Statement</a></li>
+    
   </ul>
   <span id="copyright">&copy; 2002 - 2022 mhdy.com</span>
 </section>
