@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" >
+<head>
+	<meta name="generator" content="Hugo 0.91.2" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name=robots content="index, follow">
+<meta name="description" content="">
+
+<title>mhdy.com</title>
+<style>
+ 
+ :root {
+  --color-60a: #ffffff;
+  --color-60b: #dddddd;
+  --color-60c: #cccccc;
+  --color-30: #000000;
+  --color-30b: #222222;
+  --color-10: #FF5722;
+
+  --font-body: 'Roboto', 'Arial Narrow', sans-serif;
+  --font-display: 'Roboto', Arial, sans-serif;
+  --font-data-display: 'Impact', sans-serif;
+
+  --grid-gap: 1.6rem;
+  --top-nav-height: 5.6rem;
+  --section-pad: 10vh;
+}
+
+ 
+html {
+  color: var(--color-60a);
+  font-size: 62.5%;  
+  margin: 0; padding: 0;
+  min-width: 358px;
+}
+
+body {
+  background-color: var(--color-30b);
+  margin: 0; padding: 0;
+  position: relative;
+  width: 100%; height: 100%;
+}
+
+* {
+  font-family: var(--font-body);
+  font-size: 1.6rem;  
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2; 
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+section {
+  color: var(--color-60a);
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+section article {
+  margin-right: 1.6rem;
+}
+
+p {
+  margin: 0 0 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    grid-template-columns: none;
+  }
+  section#top-bar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+  
+#skip-to-content-link {
+    background: var(--color-30);
+    color: var(--color-60a);
+    font-weight: bold;
+    height: 30px;
+    padding: 8px;
+    position: absolute; left: 50%;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    z-index: 20;
+  }
+  #skip-to-content-link:focus {
+    transform: translateY(0%);
+  }
+
+  
+#top-bar {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  position: fixed;
+  width: 100%; height: var(--top-nav-height);
+  z-index: 10;
+}
+  #top-bar #hamburger {
+    background-color: #000;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin: 0; padding: 0;
+    width: var(--top-nav-height); height: var(--top-nav-height);
+  }
+    #hamburger div {
+      background-color: var(--color-60a);
+      margin: 8px auto;
+      width: 32px; height: 2px; 
+    }
+      #hamburger div:first-child {
+        margin-top: 0;
+      }
+      #hamburger div:last-child {
+        margin-bottom: 0;
+      }
+  #top-bar #main-nav {
+    background-color:var(--color-30);
+    display: inline-block;
+    margin: 0; padding: 0 4.8rem;
+    position: absolute; top: var(--top-nav-height);
+    width: 32rem; height: 100vh;
+    z-index: 2;
+  }
+    #main-nav.show {
+      left: 0;
+      transition: left .4s;
+    }
+    #main-nav.hide {
+      left: -48rem;
+      transition: left .4s;
+    }
+    #main-nav h3 {
+      color: var(--color-60c);
+      font-size: 2.4rem;
+      margin: 0; padding: 4.8rem 0 1.6rem;
+    }
+    #main-nav ul {
+      display: block;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    #main-nav li {
+      display: block;
+      margin: 0; padding: 0;
+      position: relative;
+    }
+    #main-nav li a {
+      color: inherit;
+      display: block;
+      line-height: 1.6rem;
+      margin: 0.8rem 0; padding: 0.4rem 0;
+    }
+      #main-nav li a:focus:after,  
+      #main-nav li a:hover:after {
+        color: var(--color-10);
+        content: "\00BB";
+        display: inline-block;
+        font-size: 2rem;
+        position: absolute; top: 0.2rem; left: -1.6rem;
+        text-decoration: none;
+      }
+      #main-nav li a span {
+        color: var(--color-60c);
+        display: inline-block;
+        font-size: 1.2rem;
+        margin: 0; padding: 0;
+        opacity: 0.8;
+        text-decoration: none;
+        width: 100%;  
+      }
+    #main-nav .nav-close {
+      background-color: var(--color-30);
+      border: none;
+      cursor: pointer;
+      color: var(--color-60a);
+      display: inline-block;
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 0; padding: 0;
+      position: absolute; top: 3.2rem; right: 2.4rem;
+      width: 5.6rem; height: 5.6rem;
+    }
+    #main-nav .nav-close:hover, 
+    #main-nav .nav-close:focus {
+      background-color: var(--color-10);
+    } 
+  #top-bar #logo {
+		display: flex;
+    fill: var(--color-60a);
+		grid-column: 2 / span 2;
+    width: 9rem;
+    z-index: 1;
+  }
+    @media only screen and (max-width: 768px) {
+      #top-bar #logo {
+        margin: 0 auto;
+      }
+    }
+  #top-bar #social {
+		display: flex;
+		grid-column: 11 / span 2;
+    justify-content: flex-end;
+	}
+    #top-bar #social a {
+      margin: 1rem 0.75rem;
+    }
+    #top-bar #social a:last-child {
+      margin-right: 2rem;
+    }
+    @media only screen and (max-width: 768px) {
+      #top-bar #social {
+        grid-column: 4;
+      }
+    }
+
+ 
+#footer {
+  background-color: var(--color-30b);
+  color: var(--color-60c);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.6rem 0;
+}
+#footer #footer-links {
+  flex-grow: 1;
+  list-style: none;
+  margin: 0 2.4rem; padding: 0;
+  text-align: left;
+}
+  #footer-links li {
+    display: inline;
+  }
+  #footer-links li:not(:last-child):after {
+    content: " | ";
+    margin: 0 1rem; padding: 0;
+  }
+  #footer-links li a {
+    color: inherit;
+  }
+#footer #copyright {
+  margin: 0 2.4rem; padding: 0;
+  text-align: right;
+}
+@media only screen and (max-width: 768px) {
+  #footer #footer-links, 
+    #footer #copyright {
+      text-align: center;
+      width: 100%;
+    }
+}
+
+ 
+.home #main {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  grid-template-rows: 24vh auto auto minmax(var(--section-pad),auto);
+  padding-top: var(--top-nav-height);
+  position: relative;
+  z-index: 1;
+}
+.home #main::before {
+    background-attachment: fixed;
+    background-image: url(asset/bg_boats.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    opacity: 0.4;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index:-1;
+  }
+  #feature-heading {
+    color: var(--color-10);
+    font-size: 3.2rem;
+		grid-column: 8 / 11;
+    grid-row: 2;
+    line-height: 3.4rem;
+    margin: 0 0 2.4rem;
+  }
+  #feature-published {
+    align-self: end;
+    color: var(--color-60a);
+    display: block;
+    font-size: 1.2rem;
+    font-style: normal;
+		grid-column: 8 / 12;
+    grid-row: 1;
+    line-height: 1.2rem;
+    margin: 0;
+  }
+  #feature-summary {
+		grid-column: 8 / 12;
+    grid-row: 3;
+  }
+    #feature-links a {
+      color: inherit;
+      margin: 0 1rem;
+    }
+    #feature-links a:nth-of-type(1) {
+      margin-left: 0;
+    }
+  #feature-results {
+    color: var(--color-30);
+    display: flex;
+		grid-column: 1 / span 7;
+    grid-row: 3;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+    #feature-results li {
+      background-color: var(--color-60a);
+      border: 1rem solid #999999;
+      border-radius: 50%;
+      margin: 0 1rem;
+      text-align: center;
+      width: 8rem; height: 8rem;
+    }
+    #feature-results li:last-child {
+      margin-right: 2rem;
+    }
+    #feature-results li span {
+      color: var(--color-10);
+      font-family: var(--font-data-display);
+      line-height: 1;
+      display: block;
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin: 2.2rem auto 0;
+    }
+  @media only screen and (max-width: 768px) {
+    .home #main {
+      text-align: center;
+      grid-auto-rows: minmax(min-content, max-content);
+    }
+    #feature-heading {
+      grid-column: 1/-1; 
+      grid-row: 2;
+      text-align: center;
+    }
+    #feature-published {
+      grid-column: 1/-1; 
+      grid-row: 1;
+    }
+    #feature-summary {
+      grid-column: 1/-1; 
+      grid-row: 4;
+      margin: 0 2.4rem var(--section-pad);
+    }
+    #feature-links a {
+      display: block; 
+      margin: 0;
+    }
+    #feature-results {
+      grid-column: 1/-1; 
+      grid-row: 3; 
+      justify-content: space-evenly;
+    }
+    #feature-results li,
+    #feature-results li:last-child {
+      margin: 0;
+    }
+  }
+
+#about-site {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  padding: var(--section-pad) 0;
+}
+  #about-site h2 {
+    grid-column: 2 / 4;
+  }
+  #about-site article {
+    grid-column: 4 / 12;
+  }
+  @media only screen and (max-width: 768px) {
+    #about-site {
+      grid-column: 1/-1;
+    }
+    #about-site h2,
+    #about-site article {
+      align-self: center;
+      column-count: 1;
+      grid-column: 1/-1;
+      grid-row: auto;
+      margin: 0 2.4rem;
+      text-align: center;
+    }
+  }
+
+#about-me {
+  grid-template-rows: unset;
+  padding: var(--section-pad) 0 0;
+}
+#about-me h2 {
+  grid-column: 2 / 4;
+}
+#about-me article {
+  column-count: 2;
+  grid-column: 4 / 12;
+}
+  @media only screen and (max-width: 768px) {
+    #about-me h2, 
+    #about-me article {
+      column-count: 1;
+      grid-column: 1/-1;
+      margin: 0 2.4rem;
+      text-align: center;
+    }
+  }
+
+   
+  #contact-me {
+    padding: var(--section-pad) 0;
+  }
+  #contact-me h2 {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    position: relative; top: 2.4rem;
+  }
+  #contact-me form {
+    display: block;
+    grid-column: 4 / 8;
+    grid-row: 1 / span 2;
+    position: relative;
+  }
+  #contact-me form label {
+    display: block;
+    margin: 0; padding: 0 0 1rem;
+  }
+  #contact-me form label span {
+    display: block;
+    font-size: 1.2rem;
+  }
+  #contact-me form input[type=email] {
+    border: 1px #000 solid;
+    border-radius: 0.4rem;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 38rem;
+  }
+  #contact-me form textarea {
+    border: 1px #000 solid;
+    border-radius: 0.4rem;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    width: 38rem; height: 8rem;
+  }
+  #contact-me form input[type=submit] {
+    background-color: var(--color-10);
+    border: 1px #fff solid;
+    border-radius: 0.4rem;
+    color: var(--color-60a);
+    cursor: pointer;
+    display: block;
+    font-size: 2.4rem;
+    margin: 1rem 0; padding: 1rem 2rem;
+  }
+    #contact-me form #my-form-button.fade-In {
+      animation: fadeIn ease-in 10s;
+      -webkit-animation: fadeIn ease-in 10s;
+      -moz-animation: fadeIn ease-in 10s;
+      -o-animation: fadeIn ease-in 10s;
+      -ms-animation: fadeIn ease-in 10s;
+    }
+      @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+  #contact-me form #my-form-status {
+    font-size: 2.4rem;
+  }
+  @media only screen and (max-width: 768px) {
+    #contact-me {
+      justify-content: center;
+      text-align: center;
+    }
+    #contact-me h2,
+    #contact-me form {
+      grid-column: 1/-1;
+      grid-row: auto;
+      margin: 0 auto;
+      top: 0;
+    }
+    #contact-me form input[type=email],
+    #contact-me form input[type=submit], 
+    #contact-me form label span,
+    #contact-me form p,
+    #contact-me form textarea {
+      margin: 0 auto;
+      width: 32rem; 
+    }
+  }
+
+ 
+.article #main {
+  background-color: var(--color-30);
+  color: var(--color-60a);
+  grid-template-rows: 16rem;
+  padding: var(--top-nav-height) 0;
+  position: relative;
+  z-index: 1;
+}
+  .article #main::before {
+    background-image: url(../asset/bg_boats.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    opacity:0.4;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index:-1;
+  }
+  .article #main h1 {
+    align-self: end;
+    color: var(--color-10);
+    font-size: 3.2rem;
+    grid-column: 2 / 6;
+    line-height: 3.2rem;
+  }
+  .article #main p {
+    grid-column: 2 / 8;
+  }
+  .article #main em {
+    font-size: 1.2rem;
+    font-style: normal;
+    position: relative;
+    top: -12rem;
+  }
+  .article #main p > strong {
+    display:block;
+    font-weight: normal;
+    margin: 0 0 1.2rem;
+    text-transform: uppercase;
+  }
+  .article #main dl {
+    color: var(--color-30);
+    display: flex;
+    gap: 1.6rem;
+    grid-column: 9 / -2;
+    grid-row: 1;
+    justify-content: flex-end;
+    margin: 8rem 0 0;
+  }
+    .article #main dt,
+    .article #results-findings dt {
+      flex: none;
+      line-height: 13.2rem;
+      position: relative; 
+      text-align: center;
+      text-transform: uppercase;
+      width: 10rem;
+    }
+    .article #main dt::before,
+    .article #results-findings dt::before {
+      aspect-ratio: 1;
+      background-color: var(--color-60a);
+      border: 1rem solid #999999;
+      border-radius: 50%;
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      width: 8rem; height: 8rem;
+      z-index: -1;
+    }
+    .article #main dd,
+    .article #results-findings dd {
+      color: var(--color-10);
+      flex: none;
+      font-family: var(--font-data-display);
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin: 2.6rem 0 0 -11.6rem; padding: 0;
+      text-align: center;
+      width: 10rem;
+    }
+
+.article #problem-solution {
+  background-color: var(--color-30);
+  grid-auto-rows: auto 1fr ;
+  padding: var(--top-nav-height) 0;
+}
+  #problem-solution figure {
+    grid-column: 2 / 6;
+    grid-row: span 2;
+    margin: 2.4rem 1.6rem 0 0;
+  }
+    #problem-solution img {
+      object-fit: contain;
+      width: 100%; height: auto;
+    }
+    #problem-solution h2 {
+    align-self: flex-end;
+    grid-column: 6 / -2;
+    margin: 4rem 0 0;
+  }
+  #problem-solution p {
+    grid-column: 6 / span 4;
+  }
+
+.article .ad_h {
+  background-color: var(--color-30b);
+   
+  grid-template-columns: none;
+  justify-content: center;
+  padding: 4rem 0;
+}
+  .article .ad_h::before {
+    opacity: 0.5;
+    content: " Advertisement "
+  }
+
+.article #results-findings {
+  background-color: var(--color-60c);
+  color: var(--color-30);
+  grid-auto-rows: auto 1fr ;
+  padding: var(--top-nav-height) 0;
+  position: relative;
+  z-index: 2;
+}
+  #results-findings figure {
+    position: absolute; top: 0; right:0; bottom:0; left:0; 
+    margin: 0;
+    overflow: clip;
+    z-index: -1;    
+  }
+    #results-findings img {
+      width: 100%;
+    }
+  #results-findings h3 {
+    grid-column: 6 / -2;
+  }
+  #results-findings p {
+    grid-column: 6 / span 4;
+  }
+  #results-findings dl {
+    color: var(--color-30);
+    display: flex;
+    gap: 1.6rem;
+    grid-column: 6 / span 4;
+    grid-row: 2;
+    justify-content: flex-start;
+    position: absolute;
+    bottom: -10rem;
+    z-index: 20;
+  }
+
+.article #next-steps {
+  background-color: var(--color-30b);
+  grid-auto-rows: auto;
+  padding: var(--top-nav-height) 0;
+  position: relative;
+  z-index: 1;
+}
+  #next-steps h4 {
+    grid-column: 2 / -2;
+  }
+  #next-steps article {
+    columns: 2;
+    grid-column: 2 / -2;
+  }
+
+@media only screen and (max-width: 768px) {
+  .article #main,
+  .article #problem-solution,
+  .article #results-findings,
+  .article #next-steps {
+    gap: 0;
+    grid-row: none;
+     
+  }
+  .article #main dl,
+  .article #main em,
+  .article #main h1,
+  .article #main p,
+  .article #problem-solution figure,
+  .article #problem-solution h2, 
+  .article #problem-solution p,
+  .article #results-findings h3,
+  .article #results-findings p,
+  .article #results-findings dl,
+  #next-steps h4,
+  #next-steps article {
+    grid-column: none;
+    grid-row: auto;
+  }
+  .article #main dl {
+    grid-row: 3;
+    justify-self: center;
+    margin: 0;
+  }
+  .article #main em {
+    display: block;
+    position: absolute; top: 16rem; right: 0; left: 0;
+    margin: 0.8rem; 
+    text-align: center;
+  }
+  .article #main h1 {
+    margin: 0 0 2.4rem;
+    text-align: center;
+    grid-row: 2;
+  }
+  .article #main p {
+    grid-row: 4;
+    margin: 0 2.4rem;
+  }
+  .article #problem-solution {
+    display:block;
+    padding: 2.4rem 0;
+  }
+    #problem-solution figure {
+      margin: 0 2.4rem;
+    }
+      #problem-solution img {
+        object-fit: contain;
+        width: 100%; height: auto;
+      }
+    #problem-solution h2 {
+      margin: 1.6rem 2.4rem;
+    }
+    #problem-solution p {
+      margin: 0 2.4rem 3.2rem;
+    }
+  .article #results-findings {
+      display: block;
+      padding-top: 0;
+    }
+    #results-findings h3 {
+      margin: 1.6rem 2.4rem ;
+    }
+    #results-findings figure {
+      position: relative;
+    } 
+    #results-findings img {
+      object-fit: contain;
+      width: 100%; height: auto;
+    }
+    #results-findings p {
+      margin: 0 2.4rem;
+    }
+    #results-findings dl {
+      grid-row: 2;
+      justify-content: center;
+      width: 100%;
+    }
+    #next-steps h4 {
+      margin: 6rem 2.4rem 1.6rem ;
+    }
+    #next-steps article {
+      columns: 1;
+      margin: 0 2.4rem;
+    }
+}
+</style>
+</head>
+
+<body class="home">
+<a id="skip-to-content-link" href="#main">Skip to content</a>
+<section id="top-bar">
+  <button id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>  
+  <nav id="main-nav" class="hide">
+    <h3>Articles</h3>
+    <ul>
+      
+      
+      <li><a href="/article1/" title="Improved retail checkout page">Improved retail checkout page<span>1/12/2022</span></a></li>
+      
+      <li><a href="/article2/" title="My redesign using HUGO Static Site Generator">My redesign using HUGO Static Site Generator<span>1/10/2022</span></a></li>
+      
+    </ul>
+  </nav>
+  <a id="logo" href="https://mhdy.com/" aria-label="Home Link">
+    <svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 901.54669 217.37334" id="mhdylogo" role="img">
+      <title>Home link</title>
+      <g transform="matrix(1.3333333,0,0,-1.3333333,0,217.37333)">
+        <g transform="scale(0.1)">
+          <path d="m 3487.12,1137.97 h -0.21 c 0.03,1.42 0.21,2.81 0.21,4.24 0,81.99 -54.86,151.04 -129.84,172.78 l 0.01,0.04 c 0,0 -152.66,42.97 -378.91,42.97 -204.55,0 -431.55,-56.49 -487.07,-72.87 h -1.69 v 300.12 c 0,0.03 0.01,0.05 0.01,0.09 0,0.04 -0.01,0.06 -0.01,0.09 -0.04,23.78 -18.59,43.03 -41.98,44.61 -1.01,0.07 -1.98,0.3 -3.01,0.3 -1.03,0 -1.99,-0.23 -3,-0.3 l -400.89,-0.01 v 0.11 h -45.95 c 24.86,0 45,-20.15 45,-45 0,-0.56 -0.14,-1.09 -0.16,-1.64 v -338.16 c -5.23,34.57 -30.1,62.7 -62.91,72.6 l 0.01,0.06 c 0,0 -128.12,35.46 -326.25,35.46 -170.78,0 -284.24,-26.91 -312.33,-34.34 -2.14,-0.52 -4.27,-1.07 -6.34,-1.74 -0.33,-0.1 -0.55,-0.16 -0.55,-0.16 v -0.04 c -31.95,-10.6 -55.92,-38.58 -60.74,-72.75 h -2.04 c -4.94,35.06 -30.03,63.62 -63.22,73.56 v 0.01 c 0,0 -2.55,0.7 -7.33,1.87 -0.13,0.03 -0.27,0.08 -0.41,0.1 -30.32,7.44 -148.64,33.49 -318.512,33.49 -198.125,0 -321.25,-35.46 -321.25,-35.46 v -0.07 c -33.09,-9.99 -58.086,-38.52 -63.008,-73.5 h -0.125 v 31.02 c 0,0.07 0.02,0.12 0.02,0.19 0,0.07 -0.02,0.13 -0.02,0.2 -0.109,24.16 -19.273,43.69 -43.234,44.63 -0.594,0.02 -1.149,0.17 -1.746,0.17 -0.602,0 -1.161,-0.15 -1.75,-0.17 l -403.2661,-0.01 v -0.07 H 0 v 0 c 24.5039,-0.28 44.2812,-20.1 44.4492,-44.64 h 0.1797 V 303.629 H 44.4727 C 44.2773,279.129 24.5312,259.34 0.0585938,259.039 v -0.051 H 44.6289 v -0.019 l 450.0041,-0.008 v 0.019 h 43.976 c -24.445,0.481 -44.132,20.348 -44.132,44.911 0,0.531 0.136,1.031 0.156,1.55 l -0.004,621.661 c 4.059,42.632 37.855,76.598 80.422,80.898 v 0.05 c 13.344,1.93 68.941,8.75 191.25,8.75 117.222,0 182.066,-6.46 201.472,-8.75 45.787,-4.22 81.657,-42.695 81.657,-89.585 0,-0.844 -0.1,-1.66 -0.13,-2.5 h 0.33 V 304.512 c 0,-0.211 0.06,-0.422 0.06,-0.633 0,-24.559 -19.69,-44.43 -44.13,-44.91 h 44.07 v -0.008 h 449.96 v -0.039 h 44.18 c -24.3,0.527 -43.86,20.238 -44,44.637 h -0.14 l -0.01,613.796 h 0.14 c -0.01,0.422 -0.07,0.833 -0.07,1.25 0,46.614 35.43,84.945 80.83,89.535 v 0.05 c 13.04,1.89 66.62,8.43 183.21,8.72 112.44,-0.27 175.06,-6.47 194.04,-8.72 45.79,-4.22 81.66,-42.694 81.66,-89.585 0,-0.843 -0.1,-1.66 -0.13,-2.5 h 0.33 V 303.879 h -0.46 c -0.22,-24.367 -19.8,-44.051 -44.12,-44.5 v -0.141 h 44.58 v -0.269 l 449.87,-0.008 h 44.64 v 0.18 c -24.45,0.269 -44.19,20 -44.46,44.461 h -0.05 v 614.371 c 1.83,44.972 36.57,81.453 80.84,85.837 v 0.04 c 25.2,4.01 109.6,14.61 187.91,14.61 74.74,0 163.82,-10.29 195.3,-14.25 3.74,-0.28 7.43,-0.71 11.03,-1.43 0.26,-0.05 0.5,-0.1 0.76,-0.16 40.64,-8.495 71.19,-44.39 71.46,-87.491 h 0.2 V 304.891 h -0.24 c 0.01,-0.289 0.09,-0.563 0.09,-0.852 0,-24.801 -20.07,-44.898 -44.85,-44.988 h 45 v -0.09 h 403.66 c 0.52,-0.02 1.01,-0.16 1.55,-0.16 0.54,0 1.02,0.14 1.55,0.16 23.43,0.809 42.18,19.437 43.24,42.801 0.03,0.687 0.21,1.34 0.21,2.039 0,0.699 -0.18,1.347 -0.21,2.039 l -0.01,832.13" />
+          <path d="m 6184.02,881.465 0.05,0.047 -711.93,711.928 -3.94,3.94 c -7.94,7.01 -18.24,11.4 -29.66,11.4 -12.05,0 -22.93,-4.8 -31.01,-12.51 l -1.48,-1.48 -262.72,-262.71 -0.48,-0.48 v 252.67 c 0,0.27 0.07,0.52 0.07,0.78 0,0.06 0,0.11 -0.01,0.16 h 0.13 c 0,24.64 19.82,44.59 44.37,44.94 h -93.61 v -0.13 h -344.53 c -0.1,0 -0.19,0.03 -0.29,0.03 -0.1,0 -0.2,-0.03 -0.29,-0.03 -24.18,-0.16 -43.72,-19.4 -44.55,-43.43 -0.02,-0.52 -0.16,-1.01 -0.16,-1.54 0,-0.53 0.14,-1.03 0.16,-1.55 v -282.38 c 0,0 -259.08,57.52 -561.22,57.52 -389.59,0 -478.36,-55.38 -478.36,-55.38 -52.52,-26.22 -90.41,-77.26 -98.23,-137.79 l -0.13,0.03 c 0,0 -28.31,-223.352 -28.31,-395.363 0,-153.715 14.36,-294.188 32.76,-359.059 0.24,-0.918 0.51,-1.816 0.77,-2.738 0.85,-2.899 1.72,-5.578 2.6,-8.16 20.18,-60.399 71.4,-106.59 134.84,-119.391 10.01,-3.91 373.51,-42.328 657.02,-42.328 413.5,0 649.44,29.719 758.92,48.961 l 22.11,-22.113 29.01,-29 c 0.4,-0.481 0.73,-1.028 1.15,-1.489 l 2.5,-2.5 218.42,-218.4411 1.27,-1.2773 C 5407.35,4.82812 5418.29,0 5430.39,0 c 11.28,0 21.45,4.28906 29.35,11.1406 l 4.5,4.5078 726.11,726.0936 -0.12,0.121 c 18.42,16.578 30.06,40.52 30.06,67.246 0,29.621 -14.29,55.832 -36.27,72.356 z M 5605.3,723.984 5220.22,338.898 l -1.7,-1.707 c -0.27,-0.261 -0.6,-0.48 -0.89,-0.73 -0.01,-0.012 -0.02,-0.02 -0.03,-0.02 -1.09,-0.972 -2.19,-1.921 -3.38,-2.793 -7.46,-5.5 -16.6,-8.867 -26.59,-8.867 -23.74,0 -42.99,18.449 -44.68,41.77 l -0.35,0.16 V 531.82 c -1.29,22.918 -19.6,41.141 -42.57,42.258 h -968.78 v 0.16 c -0.09,0 -0.2,-0.008 -0.3,-0.008 -49.7,0 -90,40.29 -90,89.997 h -0.13 v 238.964 c -0.32,3.051 -0.48,6.153 -0.48,9.293 0,49.707 40.29,89.996 90,89.996 1.79,0 3.55,-0.16 5.32,-0.27 h 568.48 v -0.01 h 393.68 c 0.03,0 0.07,-0.01 0.1,-0.01 0.02,0 0.06,0.01 0.09,0.01 24.58,0.05 44.47,19.82 44.84,44.31 0,0.24 0.07,0.45 0.07,0.68 0,0.24 -0.07,0.45 -0.07,0.68 v 165.33 c -0.02,0.52 -0.1,1.03 -0.16,1.55 -0.02,0.2 -0.06,0.38 -0.06,0.58 0,0.2 0.06,0.38 0.06,0.58 0.03,1.93 0.37,3.77 0.64,5.63 3.04,21.88 21.58,38.79 44.3,38.79 13.23,0 25.02,-5.82 33.25,-14.92 v 0.57 l 387.76,-387.765 c 17.37,-16.496 28.25,-39.75 28.25,-65.602 0,-27.465 -12.28,-52.027 -31.59,-68.629" />
+          <path d="m 6749.08,1368.8 -1.4,1.39 -219.24,219.25 -1.37,1.37 c -8.08,7.75 -18.99,12.56 -31.07,12.56 -12.32,0 -23.47,-4.97 -31.6,-12.99 l 0.02,-0.02 -0.58,-0.57 -442.8,-442.79 -1.04,-1.05 -0.02,0.02 -31.58,-31.57 30.63,-30.62 c 0.14,-0.15 0.24,-0.33 0.38,-0.48 l 1.42,-1.41 219.19,-219.21 1.53,-1.504 c 8.07,-7.707 18.94,-12.5 30.98,-12.5 12.36,0 23.54,5 31.67,13.054 l 0.28,0.274 443.65,443.656 0.59,0.58 c 7.96,8.12 12.91,19.23 12.91,31.5 0,12.07 -4.82,22.99 -12.55,31.06" />
+        </g>
+      </g>
+    </svg>
+  </a>
+  <nav id="social">
+      <a href="https://www.linkedin.com/in/miguelyounger/" aria-label="LinkedIn Link">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+          <title>LinkedIn link</title>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM8.2 13.3V24H11.6V13.3H8.2ZM8 9.9C8 11 8.8 11.8 9.9 11.8C11 11.8 11.8 11 11.8 9.9C11.8 8.8 11 8 9.9 8C8.9 8 8 8.8 8 9.9ZM20.6 24H23.8V17.4C23.8 14.1 21.8 13 19.9 13C18.2 13 17 14.1 16.7 14.8V13.3H13.5V24H16.9V18.3C16.9 16.8 17.9 16 18.9 16C19.9 16 20.6 16.5 20.6 18.2V24Z" fill="white"/>
+          </svg>            
+      </a>
+      <a href="https://twitter.com/miguelyounger" aria-label="Twitter Link">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+          <title>Twitter link</title>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM22.1 11.5C22.8 11.4 23.4 11.3 24 11C23.6 11.7 23 12.3 22.3 12.7C22.5 17.4 19.1 22.5 13 22.5C11.2 22.5 9.5 21.9 8 21C9.7 21.2 11.5 20.7 12.7 19.8C11.2 19.8 10 18.8 9.6 17.5C10.1 17.6 10.6 17.5 11.1 17.4C9.6 17 8.5 15.6 8.5 14.1C9 14.3 9.5 14.5 10 14.5C8.6 13.5 8.1 11.6 9 10.1C10.7 12.1 13.1 13.4 15.8 13.5C15.3 11.5 16.9 9.5 19 9.5C19.9 9.5 20.8 9.9 21.4 10.5C22.2 10.3 22.9 10.1 23.5 9.7C23.3 10.5 22.8 11.1 22.1 11.5Z" fill="white"/>
+          </svg>            
+      </a>
+      <a href="https://github.com/miguely/" aria-label="GitHub Link">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img">
+          <title>GitHub link</title>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16C32 24.8366 24.8366 32 16 32C7.16344 32 0 24.8366 0 16ZM8 16.1675C8 11.7639 11.5718 8.192 15.9755 8.192C20.3792 8.192 23.951 11.7639 24 16.1675C24 19.6905 21.7492 22.6752 18.5688 23.7516C18.1774 23.8006 18.0306 23.5559 18.0306 23.3602V21.1584C18.0306 20.4244 17.7859 19.9351 17.4924 19.6905C19.2538 19.4948 21.1132 18.8587 21.1132 15.7761C21.1132 14.8954 20.7706 14.1614 20.2814 13.6232C20.2852 13.6078 20.2906 13.5885 20.297 13.5655C20.3719 13.2953 20.5892 12.5111 20.1835 11.5192C20.1835 11.5192 19.4985 11.3235 17.9816 12.351C17.3456 12.2042 16.6605 12.1064 15.9755 12.1064C15.2905 12.1064 14.6055 12.1553 13.9694 12.351C12.4526 11.3235 11.7676 11.5192 11.7676 11.5192C11.3351 12.5763 11.6105 13.3975 11.6669 13.5657L11.6697 13.5743C11.1315 14.1614 10.8379 14.8464 10.8379 15.7272C10.8379 18.8097 12.6973 19.4948 14.4587 19.6905C14.263 19.8862 14.0184 20.2287 13.9694 20.7669C13.5291 20.9626 12.4037 21.3052 11.6697 20.0819C11.6697 20.0819 11.2294 19.299 10.4465 19.2501C10.4465 19.2501 9.66364 19.2501 10.3976 19.7394C10.3976 19.7394 10.9358 19.9841 11.2783 20.9137C11.2783 20.9137 11.7676 22.4795 13.9694 21.9902V23.3602C13.9694 23.5559 13.8226 23.8006 13.4312 23.7516C10.2997 22.6752 8 19.6905 8 16.1675Z" fill="white"/>
+          </svg>    
+      </a> 
+  </nav>
+</section>
+
+<section id="main">
+  <h1 id="feature-heading">Improved retail checkout page</h1>
+  <i id="feature-published">Published 1/1/2022</i>
+  <article id="feature-summary">
+    <p>Article Summary goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed felis quam. Vivamus quis lacus congue, porta sapien non, elementum erat. Donec vitae condimentum ex. Praesent lacus libero, rutrum et laoreet in, maximus id nisi. Etiam ac massa lectus. Vestibulum malesuada urna luctus mollis vulputate. Ut a sem egestas, facilisis nisl in, ullamcorper libero. Sed in nisi sit amet massa placerat sagittis. Integer pretium eleifend tortor, interdum dictum tortor rutrum tempor.</p>
+    <p id="feature-links"><a href="#">READ THIS ARTICLE</a> or <a href="#">SEE ALL ARTICLES</a></p>
+  </article>
+  <ul id="feature-results">
+    <li><span>6d</span> TIME</li>
+    <li><span>+30%</span> KPI</li>
+    <li><span>+10%</span> ROI</li>
+  </ul>
+</section>
+
+<section id="about-site">
+  <h2>About This Site</h2>
+  <article>
+    <p>This site is a record of thoughts on user experience design and conversion rate optimization (CRO). Each article will explore topics related to basic SEO, CRO, UX, or website performance as measured by Google Vitals, Google Page Speed, and GTMetrix. It is also a playground for trying new things. It is built using only basic HTML, CSS, and JavaScript because, well, that is all that is needed.</p>
+  </article>
+</section>
+
+<section id="about-me">
+  <h2>About Me</h2>
+  <article>
+    <p>With a passion for improving user experience and increasing conversion rates, Miguel is an incredible resource for any business looking to grow online.</p> 
+    <p>After more than 24 years working in online services and e-commerce, Miguel brings a wealth of knowledge and experience to each project he takes on. He has served large and small brands across the country in website design, usability, operations and project management. Each position has enhanced his abilities and given Miguel invaluable insights into the minds of consumers.</p> 
+    <p>His strong analytical skills, attention to detail, and desire to help others enable Miguel to excel in boosting various organizations' revenues and conversions. The goal with every initiative he takes on is to make the client standout as a leader in their respective industry for their target audience.</p>  
+    <p>Miguel has a BFA in Communication Design from Kutztown University. When he's not busy studying new ways to bolster CRO, Miguel enjoys photography, investing and fitness.</p>
+  </article>
+</section>
+
+<section id="contact-me">
+  <h2>Contact me</h2>
+  <form id="my-form" action="https://formspree.io/f/mgerydjp" method="POST">
+    <label>Your Email
+      <input id="email" name="email" type="email" aria-required="true" autocomplete="email" required>
+      <span>Enter the email address I should respond to.</span>
+    </label>
+    <label>Your Message
+      <textarea type="text" id="message" name="message" aria-required="true" maxlength="1000"></textarea>
+      <span>Send me a comment and don't forget to include your name. 1,000 character limit.</span>
+    </label>
+    <input id="my-form-button" type="submit" name="submit" value="Submit Comment">
+    <p id="my-form-status"></p>
+  </form>
+</section>
+
+<section id="footer">
+  <ul id="footer-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Accessibility</a></li>
+    <li><a href="#">Sitemap</a></li>
+  </ul>
+  <span id="copyright">&copy; 2002 - 2022 mhdy.com</span>
+</section>
+</body>
+<script>
+function htmlCssLoader(cssfile)
+{
+  const css_link = document.createElement('link');
+  css_link.rel = 'stylesheet';
+  css_link.type = 'text/css';
+  css_link.href = cssfile;
+  document.getElementsByTagName('HEAD')[0].appendChild(css_link);
+}
+
+function htmlMetaLoader(mname, mcontent)
+{
+  const meta_tag = document.createElement('meta');
+  if (mname) {meta_tag.name = mname};
+  if (mcontent) {meta_tag.content = mcontent};
+  document.getElementsByTagName('HEAD')[0].appendChild(meta_tag);
+}
+
+function menuAction()
+{
+  if(document.getElementById('main-nav').className == 'hide')
+  {
+    document.getElementById('main-nav').className = 'show';
+  }else{
+    document.getElementById('main-nav').className = 'hide';
+  }
+}
+
+function menuLoader()
+{  
+  document.getElementById("hamburger").addEventListener("click", menuAction);
+   
+  const closeLink = document.createElement('button');
+  closeLink.classList.add('nav-close');
+  closeLink.innerText = "[ x ]";
+  closeLink.tabIndex = 0;
+  closeLink.addEventListener("click", menuAction);
+  document.getElementById('main-nav').appendChild(closeLink);
+}
+
+function formHandler() 
+{  
+  const form = document.getElementById("my-form");
+  const formSubmit = document.getElementById("my-form-button");
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const status = document.getElementById("my-form-status");
+    const data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      status.innerHTML = "Thanks for reaching out! <br> I'll be in touch soon.";
+      formSubmit.classList.add('fade-In');
+      form.reset()
+    }).catch(error => {
+      status.innerHTML = "There was a problem submitting your form. <br> Please try again."
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+}
+
+menuLoader();
+formHandler();
+</script>
+</html>
