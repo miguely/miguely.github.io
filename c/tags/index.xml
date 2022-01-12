@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on mhdy.com</title>
-    <link>https://mhdy.com/tags/</link>
+    <link>https://mhdy.com//c/tags/</link>
     <description>Recent content in Tags on mhdy.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://mhdy.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://mhdy.com//c/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

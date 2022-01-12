@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mhdy.com/article1/</loc>
+    <loc>https://mhdy.com//c/article1/</loc>
     <lastmod>2022-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mhdy.com/privacy_policy/</loc>
+    <loc>https://mhdy.com//c/privacy_policy/</loc>
     <lastmod>2022-01-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mhdy.com/article2/</loc>
+    <loc>https://mhdy.com//c/article2/</loc>
     <lastmod>2022-01-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mhdy.com/accessibility_statement/</loc>
+    <loc>https://mhdy.com//c/accessibility_statement/</loc>
     <lastmod>2022-01-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mhdy.com/categories/</loc>
+    <loc>https://mhdy.com//c/categories/</loc>
   </url><url>
-    <loc>https://mhdy.com/</loc>
+    <loc>https://mhdy.com//c/</loc>
   </url><url>
-    <loc>https://mhdy.com/tags/</loc>
+    <loc>https://mhdy.com//c/tags/</loc>
   </url>
 </urlset>
