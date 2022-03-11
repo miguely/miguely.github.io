@@ -544,6 +544,20 @@ p {
   }
 
  
+.article .ad_h {
+  background-color: var(--color-30b);
+  grid-template-columns: none;
+  grid-template-rows: none;
+  justify-content: center;
+  padding: 4rem 0;
+  text-align: center;
+}
+  .article .ad_h::before {
+    content: " Advertisement ";
+    opacity: 0.5;
+  }
+
+ 
 .article #main {
   background-color: var(--color-30);
   color: var(--color-60a);
@@ -627,13 +641,12 @@ p {
       width: 10rem;
     }
 
-.article #body-content {
+ 
+#problem-solution {
   background-color: var(--color-30);
   grid-auto-rows: auto 1fr ;
   padding: var(--top-nav-height) 0;
 }
-
-   
   #problem-solution figure {
     grid-column: 2 / 6;
     grid-row: span 3;
@@ -653,19 +666,6 @@ p {
   #problem-solution p,
   #problem-solution ul {
     grid-column: 6 / span 5;
-  }
-
-.article .ad_h {
-  background-color: var(--color-30b);
-  grid-template-columns: none;
-  grid-template-rows: none;
-  justify-content: center;
-  padding: 4rem 0;
-  text-align: center;
-}
-  .article .ad_h::before {
-    content: " Advertisement ";
-    opacity: 0.5;
   }
 
 #results-findings {
@@ -905,7 +905,6 @@ p {
     max-width: 100%;
   }
 }
-
 </style>
 </head>
 

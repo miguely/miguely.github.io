@@ -544,6 +544,20 @@ p {
   }
 
  
+.article .ad_h {
+  background-color: var(--color-30b);
+  grid-template-columns: none;
+  grid-template-rows: none;
+  justify-content: center;
+  padding: 4rem 0;
+  text-align: center;
+}
+  .article .ad_h::before {
+    content: " Advertisement ";
+    opacity: 0.5;
+  }
+
+ 
 .article #main {
   background-color: var(--color-30);
   color: var(--color-60a);
@@ -627,13 +641,12 @@ p {
       width: 10rem;
     }
 
-.article #body-content {
+ 
+#problem-solution {
   background-color: var(--color-30);
   grid-auto-rows: auto 1fr ;
   padding: var(--top-nav-height) 0;
 }
-
-   
   #problem-solution figure {
     grid-column: 2 / 6;
     grid-row: span 3;
@@ -653,19 +666,6 @@ p {
   #problem-solution p,
   #problem-solution ul {
     grid-column: 6 / span 5;
-  }
-
-.article .ad_h {
-  background-color: var(--color-30b);
-  grid-template-columns: none;
-  grid-template-rows: none;
-  justify-content: center;
-  padding: 4rem 0;
-  text-align: center;
-}
-  .article .ad_h::before {
-    content: " Advertisement ";
-    opacity: 0.5;
   }
 
 #results-findings {
@@ -905,7 +905,6 @@ p {
     max-width: 100%;
   }
 }
-
 </style>
 </head>
 
@@ -967,7 +966,7 @@ p {
 It was time to redesign my website, and I needed to move from a static image website (used to showcase the occasional photograph I took) to one that supports UX and CRO focused articles. My journey involved learning the HUGO Static Site Generator to produce a fast and lightweight website, leveraging CSS Grid to create a code optimized responsive design, all while achieving the ever elusive Google Page Speed score of 100%.</p>
 <dl>
 <dt>Size</dt>
-<dd>0.7mb</dd>
+<dd>0.2mb</dd>
 <dt>GT</dt>
 <dd>100%</dd>
 <dt>GPS</dt>
@@ -1015,7 +1014,7 @@ It was time to redesign my website, and I needed to move from a static image web
 <p><img src="/asset/gps_mhdy_mb_score_cloudflare.png" />After the CloudFlare image cache setting, I received the targeted 100% score. It is worth noting that I didn’t even have to optimize the individual image after setting up CloudFlare. Though it was still recommended that I further optimize my large desktop image to save cellular data when used on mobile devices.</p>
 <dl>
 <dt>Size</dt>
-<dd>0.7mb</dd>
+<dd>0.2mb</dd>
 <dt>GT</dt>
 <dd>100%</dd>
 <dt>GPS</dt>
