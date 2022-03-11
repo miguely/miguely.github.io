@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mhdy.com</title>
+    <link>https://mhdy.com/</link>
+    <description>Recent content on mhdy.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://mhdy.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://mhdy.com/privacy_policy/</link>
+      <pubDate>Wed, 12 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mhdy.com/privacy_policy/</guid>
+      <description>Don&amp;rsquo;t like cookies? Use your browser to block them. My site doesn&amp;rsquo;t collect or store any private data by default. I do use 3rd party analytics software such as Google Analytics which is common online. For more information on Google Analytics and their cookie policies, be sure to look it up online.
+Technology Used  Google Analytics  Email Forms If you use the contact form, keep in mind:
+ Don&amp;rsquo;t send sensitive information, the submission is routed through 3rd party email providers before it ends up in my regular inbox.</description>
+    </item>
+    
+    <item>
+      <title>Accessibility Statement</title>
+      <link>https://mhdy.com/accessibility_statement/</link>
+      <pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mhdy.com/accessibility_statement/</guid>
+      <description>Accessibility Statement MHDY.com is committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. I am actively working to increase the accessibility and usability of this website and in doing so adhere to many of the available standards and guidelines.
+This website endeavours to conform to WCAG 2.1 AA; or level Double-A of the World Wide Web Consortium (W3C) Web Content Accessibility Guidelines 2.</description>
+    </item>
+    
+    <item>
+      <title>Building a fast and lightweight website</title>
+      <link>https://mhdy.com/building_a_fast_and_lightweight_website/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mhdy.com/building_a_fast_and_lightweight_website/</guid>
+      <description>It was time to redesign my website, and I needed to move from a static image website (used to showcase the occasional photograph I took) to one that supports UX and CRO focused articles. My journey involved learning the HUGO Static Site Generator to produce a fast and lightweight website, leveraging CSS Grid to create a code optimized responsive design, all while achieving the ever elusive Google Page Speed score of 100%.</description>
+    </item>
+    
+  </channel>
+</rss>
