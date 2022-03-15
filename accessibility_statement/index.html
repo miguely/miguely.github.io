@@ -675,18 +675,20 @@ p {
   position: relative;
   z-index: 2;
 }
-  #results-findings figure {
-    position: absolute; top: 0; right:0; bottom:0; left:0;
-    margin: 0;
-    overflow: clip;
-    z-index: -2;    
-  }
 
-    #results-findings figure img {
-      filter: blur(2px);
-        -webkit-filter: blur(2px);
+ 
+#results-findings figure {
+    grid-column: 2 / 6;
+    grid-row: span 3;
+    margin: 2.4rem 1.6rem 0 0;
+  }
+  #results-findings figure img {
+      object-fit: contain;
       outline: none;
+      width: 100%; height: auto;
     }
+    
+ 
     #results-findings img {
       outline: 1px solid #aaaaaa;
       outline-offset: -1px;
@@ -713,7 +715,7 @@ p {
     z-index: 20;
   }
 
-.article #next-steps {
+#next-steps {
   background-color: var(--color-30b);
   grid-auto-rows: auto;
   padding: var(--top-nav-height) 0;
@@ -735,7 +737,6 @@ p {
   .article #next-steps {
     gap: 0;
     grid-row: none;
-     
   }
   .article #main dl,
   .article #main em,
@@ -752,27 +753,27 @@ p {
     grid-column: none;
     grid-row: auto;
   }
-  .article #main dl {
+  #main dl {
     grid-row: 3;
     justify-self: center;
     margin: 0;
   }
-  .article #main em {
+  #main em {
     display: block;
     position: absolute; top: 16rem; right: 0; left: 0;
     margin: 0.8rem; 
     text-align: center;
   }
-  .article #main h1 {
+  #main h1 {
     margin: 0 0 2.4rem;
     text-align: center;
     grid-row: 2;
   }
-  .article #main p {
+  #main p {
     grid-row: 4;
     margin: 0 2.4rem;
   }
-  .article #problem-solution {
+  #problem-solution {
     display:block;
     padding: 2.4rem 0;
   }
@@ -789,30 +790,43 @@ p {
     #problem-solution p {
       margin: 0 2.4rem 3.2rem;
     }
-  .article #results-findings {
+    #problem-solution ul {
+      margin: 0 2.4rem 3.2rem 0;
+    }    
+  #results-findings {
       display: block;
-      padding-top: 0;
-    }
-    #results-findings h3 {
-      margin: 1.6rem 2.4rem ;
+      padding: 4rem 0;
     }
     #results-findings figure {
-      position: relative;
+      position: absolute; top: 0; right:0; bottom:0; left:0;
+      margin: 0;
+      overflow: clip;
+      z-index: -2; 
     } 
-    #results-findings img {
-      object-fit: contain;
-      width: 100%; height: auto;
+      #results-findings figure img {
+        outline: none;
+      }
+    #results-findings h3 {
+      padding: 0 2.4rem 1.6rem ;
     }
     #results-findings p {
-      margin: 0 2.4rem;
+      margin: 1.6rem 2.4rem;
     }
     #results-findings dl {
       grid-row: 2;
       justify-content: center;
       width: 100%;
     }
+    #results-findings {
+      display: block;
+      padding: 4rem 0;
+    }
+  
+  #next-steps {
+    padding: 8rem 0;
+  }
     #next-steps h4 {
-      margin: 6rem 2.4rem 1.6rem ;
+      margin: 0 2.4rem 1.6rem ;
     }
     #next-steps article {
       columns: 1;
@@ -1062,7 +1076,16 @@ function formHandler()
   form.addEventListener("submit", handleSubmit)
 }
 
+ 
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFG8BL');
+ 
+
 menuLoader();
 formHandler();
+gtmLoader();
 </script>
 </html>

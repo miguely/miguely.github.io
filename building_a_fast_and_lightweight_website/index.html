@@ -675,18 +675,20 @@ p {
   position: relative;
   z-index: 2;
 }
-  #results-findings figure {
-    position: absolute; top: 0; right:0; bottom:0; left:0;
-    margin: 0;
-    overflow: clip;
-    z-index: -2;    
-  }
 
-    #results-findings figure img {
-      filter: blur(2px);
-        -webkit-filter: blur(2px);
+ 
+#results-findings figure {
+    grid-column: 2 / 6;
+    grid-row: span 3;
+    margin: 2.4rem 1.6rem 0 0;
+  }
+  #results-findings figure img {
+      object-fit: contain;
       outline: none;
+      width: 100%; height: auto;
     }
+    
+ 
     #results-findings img {
       outline: 1px solid #aaaaaa;
       outline-offset: -1px;
@@ -713,7 +715,7 @@ p {
     z-index: 20;
   }
 
-.article #next-steps {
+#next-steps {
   background-color: var(--color-30b);
   grid-auto-rows: auto;
   padding: var(--top-nav-height) 0;
@@ -735,7 +737,6 @@ p {
   .article #next-steps {
     gap: 0;
     grid-row: none;
-     
   }
   .article #main dl,
   .article #main em,
@@ -752,27 +753,27 @@ p {
     grid-column: none;
     grid-row: auto;
   }
-  .article #main dl {
+  #main dl {
     grid-row: 3;
     justify-self: center;
     margin: 0;
   }
-  .article #main em {
+  #main em {
     display: block;
     position: absolute; top: 16rem; right: 0; left: 0;
     margin: 0.8rem; 
     text-align: center;
   }
-  .article #main h1 {
+  #main h1 {
     margin: 0 0 2.4rem;
     text-align: center;
     grid-row: 2;
   }
-  .article #main p {
+  #main p {
     grid-row: 4;
     margin: 0 2.4rem;
   }
-  .article #problem-solution {
+  #problem-solution {
     display:block;
     padding: 2.4rem 0;
   }
@@ -789,30 +790,43 @@ p {
     #problem-solution p {
       margin: 0 2.4rem 3.2rem;
     }
-  .article #results-findings {
+    #problem-solution ul {
+      margin: 0 2.4rem 3.2rem 0;
+    }    
+  #results-findings {
       display: block;
-      padding-top: 0;
-    }
-    #results-findings h3 {
-      margin: 1.6rem 2.4rem ;
+      padding: 4rem 0;
     }
     #results-findings figure {
-      position: relative;
+      position: absolute; top: 0; right:0; bottom:0; left:0;
+      margin: 0;
+      overflow: clip;
+      z-index: -2; 
     } 
-    #results-findings img {
-      object-fit: contain;
-      width: 100%; height: auto;
+      #results-findings figure img {
+        outline: none;
+      }
+    #results-findings h3 {
+      padding: 0 2.4rem 1.6rem ;
     }
     #results-findings p {
-      margin: 0 2.4rem;
+      margin: 1.6rem 2.4rem;
     }
     #results-findings dl {
       grid-row: 2;
       justify-content: center;
       width: 100%;
     }
+    #results-findings {
+      display: block;
+      padding: 4rem 0;
+    }
+  
+  #next-steps {
+    padding: 8rem 0;
+  }
     #next-steps h4 {
-      margin: 6rem 2.4rem 1.6rem ;
+      margin: 0 2.4rem 1.6rem ;
     }
     #next-steps article {
       columns: 1;
@@ -961,7 +975,7 @@ p {
 
 <section id="main">
 <h1>Building a fast and lightweight website</h1>
-<p><em>Published 1/30/2022</em>
+<p><em>Published 1/26/2022</em>
 <strong>Summary</strong>
 It was time to redesign my website, and I needed to move from a static image website (used to showcase the occasional photograph I took) to one that supports UX and CRO focused articles. My journey involved learning the HUGO Static Site Generator to produce a fast and lightweight website, leveraging CSS Grid to create a code optimized responsive design, all while achieving the ever elusive Google Page Speed score of 100%.</p>
 <dl>
@@ -975,9 +989,6 @@ It was time to redesign my website, and I needed to move from a static image web
 </section>
 <section id="problem-solution">
   <figure>
-  <img src="../asset/gps_score_homepage_image.png"
-      alt="The new website was structurally simple but tweaks were needed."
-      class="inset" />
   <img src="../asset/gps_score_sample.png"
       alt="Google Page Speed (GPS) score is only 80% on the live site, well below the target 100%."
       class="inset" /></figure>
@@ -992,26 +1003,25 @@ It was time to redesign my website, and I needed to move from a static image web
 <li>Be able to host the site for free using GitHub. The price of basic website hosting is very affordable thanks to cloud computing and competition. The choice to host for free with GitHub was mostly academic. This contributed to the decision to use an SSG which would produce the high performing static website pages while offering the template and content management benefits.</li>
 </ul>
   <figure><img src="../asset/figma_columns_designs.png"
-      alt="alt text"
+      alt="Figma high fidelity wireframes showing 12 column grid"
       class="inset" /></figure>
 <h2>My Approach</h2>
-<p>I had to learn to use CSS Grid as a modern approach to creating clean and responsive layouts. Picking up CSS Grid was easy thanks to my previous experience with CSS and a bunch of helpful YouTube videos. (If you’ve never seen <a href="https://www.youtube.com/kepowob">Kevin Powell</a>’s CSS videos, you may be missing out on a wealth of information) . The layout options are versatile and flexible, exactly what is needed for a modern day responsive website. While CSS Flexbox would achieve similar effects; using CSS Grid paired nicely with my Figma design’s column based layouts.</p>
-<p>I then had to learn and use a SSG to manage separate template files and produce clean code output. The choice of SSG came down to two popular tools: <a href="https://gohugo.io/">Hugo</a> and <a href="https://www.11ty.dev/">11ty</a>. While the JS language of 11ty made it a top contender, Hugo is self-contained (11ty requires NPM/Node) and has built-in Github support. I have no prior experience with Hugo’s Go language, but there was plenty of online documentation and loads of helpful YouTube videos to speed things along. Using HUGO in the MicroSoft Visual Studio Code terminal was fast and convenient. I admit I’m still manually uploading everything to GitHub; learning to integrate everything into GitHub will be a lesson for another day.</p>
+<p>I had to learn to use CSS Grid as a modern approach to creating clean and responsive layouts. Picking up CSS Grid was easy thanks to my previous experience with CSS and a bunch of helpful YouTube videos. (If you’ve never seen <a href="https://www.youtube.com/kepowob" target="_blank">Kevin Powell</a>’s CSS videos, you may be missing out on a wealth of information) . The layout options are versatile and flexible, exactly what is needed for a modern day responsive website. While CSS Flexbox would achieve similar effects; using CSS Grid paired nicely with my Figma design’s column based layouts.</p>
+<p>I then had to learn and use a SSG to manage separate template files and produce clean code output. The choice of SSG came down to two popular tools: <a href="https://gohugo.io/" target="_blank">Hugo</a> and <a href="https://www.11ty.dev/" target="blank">11ty</a>. While the JS language of 11ty made it a top contender, Hugo is self-contained (11ty requires NPM/Node) and has built-in Github support. I have no prior experience with Hugo’s Go language, but there was plenty of online documentation and loads of helpful YouTube videos to speed things along. Using HUGO in the MicroSoft Visual Studio Code terminal was fast and convenient. I admit I’m still manually uploading everything to GitHub; learning to integrate everything into GitHub will be a lesson for another day.</p>
 </section>
 <!-- <section class="ad_h">AD SECTION</section> -->
 <section id="results-findings">
 <figure><img src="../asset/results_bg1.png"
-     alt="alt text"
-     id="inset3" /></figure>
+     alt=" " /></figure>
 <h3>Results &amp; Findings</h3>
 <p>After rebuilding the templates and setting the foundations for my articles, written in Markdown, I uploaded my site to GitHub for testing.</p>
-<p><strong>GTMetrix Scores</strong>: <img src="/asset/gtmetrix_mhdy_score.png" /> Provided a 100% performance and 98% structure score right off the bat. The only real improvement available was improving the image optimization and cache policy. This is hardly a surprise since I didn’t build in any media based image sizing yet.</p>
-<p><strong>Google Page Speed Scores</strong>: <img src="/asset/gps_mhdy_dt_score.png" /> <img src="/asset/gps_mhdy_mb_score.png" /> Wasn’t far behind with scores of 100% and 99% for Desktop and Mobile respectively. Google also recommended serving images in nextgen formats like WebP and AVIF instead of JPG and PNG as a means of improving download speeds and consuming less data. This will be an upgrade for another time since my largest image was only 641KB, which is hardly large by today’s desktop standards. I do concede that the mobile sizing should be smaller.</p>
-<p>If you are ever curious how these scores are weighted, I strongly recommend you consult this article <a href="https://web.dev/performance-scoring/">Google Lighthouse 8</a>. It’s easy to assume that First Content Paint and Time to Interactive are important (weighted 10% each), but did you know that Total Blocking Time is more impactful (weighted 30%)?</p>
+<p><strong>GTMetrix Scores</strong>: <img src="/asset/gtmetrix_mhdy_score.png" alt="'A' grade, 100% performance score on Gtmetrix.com." /> Provided a 100% performance and 98% structure score right off the bat. The only real improvement available was improving the image optimization and cache policy. This is hardly a surprise since I didn’t build in any media based image sizing yet.</p>
+<p><strong>Google Page Speed Scores</strong>: <img src="/asset/gps_mhdy_dt_score.png" alt="100% desktop browser performance score in Google PageSpeed Insights." /> <img src="/asset/gps_mhdy_mb_score.png" alt="99% mobile browser performance score in Google PageSpeed Insights." /> Wasn’t far behind with scores of 100% and 99% for Desktop and Mobile respectively. Google also recommended serving images in nextgen formats like WebP and AVIF instead of JPG and PNG as a means of improving download speeds and consuming less data. This will be an upgrade for another time since my largest image was only 641KB, which is hardly large by today’s desktop standards. I do concede that the mobile sizing should be smaller.</p>
+<p>If you are ever curious how these scores are weighted, I strongly recommend you consult this article <a href="https://web.dev/performance-scoring/" target="_blank"> Google Lighthouse 8</a>. It’s easy to assume that First Content Paint and Time to Interactive are important (weighted 10% each), but did you know that Total Blocking Time is more impactful (weighted 30%)?</p>
 <p>I’ve already moved my CSS on-page to minimize page layout shift and improve block rendering. I even put my JS on-page because it was short enough and applied to all pages. I made the decision that eliminating one extra file lookup was worth adding a bit more code to the page. I now needed to make sure my images were optimized well for the web and that I serve static assets with an efficient cache policy.</p>
-<p>Github currently does not allow you to set image cache policies so the answer is simply to use a CDN service like CloudFlare. Signing up for a free account was fast and easy. It required me to update my domain Name Server records. CloudFlare’s Quick Start Guide helps improve security by enforcing SSL usage; auto-minifies files such as JS, CSS, and HTML; and helps speed up page load times by offering optional Brotli compression. Now the DNS update did take down my website for a short duration (a few minutes while my browser updated DNS cache). I used <a href="https://www.whatsmydns.net/">WhatsMyDNS</a> to confirm the NS updates went through. I was pleasantly surprised to see the updates happened within minutes, though sometimes they can take up to 24 hours to fully propagate. Given all the benefits of the CloudFlare service (ssl enforcement, firewalls, caching, rules, etc), I really should have made this update years ago.</p>
-<p>Caching Rules: Since this site is serving static articles that really won’t change much, I set the Browser Cache TTL to 6 months. After a quick refresh of the website I see that my image now has a max-age of 16070400. (<a href="https://www.epochconverter.com/">The EpochConverter</a> tells me this is 186 days which roughly converts to 6.1 months).</p>
-<p><img src="/asset/gps_mhdy_mb_score_cloudflare.png" />After the CloudFlare image cache setting, I received the targeted 100% score. It is worth noting that I didn’t even have to optimize the individual image after setting up CloudFlare. Though it was still recommended that I further optimize my large desktop image to save cellular data when used on mobile devices.</p>
+<p>Github currently does not allow you to set image cache policies so the answer is simply to use a CDN service like CloudFlare. Signing up for a free account was fast and easy. It required me to update my domain Name Server records. CloudFlare’s Quick Start Guide helps improve security by enforcing SSL usage; auto-minifies files such as JS, CSS, and HTML; and helps speed up page load times by offering optional Brotli compression. Now the DNS update did take down my website for a short duration (a few minutes while my browser updated DNS cache). I used <a href="https://www.whatsmydns.net/" target="_blank">WhatsMyDNS</a> to confirm the NS updates went through. I was pleasantly surprised to see the updates happened within minutes, though sometimes they can take up to 24 hours to fully propagate. Given all the benefits of the CloudFlare service (ssl enforcement, firewalls, caching, rules, etc), I really should have made this update years ago.</p>
+<p>Caching Rules: Since this site is serving static articles that really won’t change much, I set the Browser Cache TTL to 6 months. After a quick refresh of the website I see that my image now has a max-age of 16070400. <a href="https://www.epochconverter.com/" target="_blank">The EpochConverter</a> tells me this is 186 days which roughly converts to 6.1 months).</p>
+<p><img src="/asset/gps_mhdy_mb_score_cloudflare.png" alt="100% mobile browser performance score in Google PageSpeed Insights." />After the CloudFlare image cache setting, I received the targeted 100% score. It is worth noting that I didn’t even have to optimize the individual image after setting up CloudFlare. Though it was still recommended that I further optimize my large desktop image to save cellular data when used on mobile devices.</p>
 <dl>
 <dt>Size</dt>
 <dd>0.2mb</dd>
@@ -1123,7 +1133,16 @@ function formHandler()
   form.addEventListener("submit", handleSubmit)
 }
 
+ 
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFG8BL');
+ 
+
 menuLoader();
 formHandler();
+gtmLoader();
 </script>
 </html>
