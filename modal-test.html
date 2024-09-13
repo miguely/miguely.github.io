@@ -86,10 +86,10 @@ function getCookie(cname) {
 }
 
 /* Modal Handler */
-function checkCookie() {
+function checkPrivacyBanner() {
   let ccs_cookie = getCookie("privacy_banner_reviewed");
-  if (ccs_cookie != "") {
-   return
+  if (ccs_cookie == "yes") {
+   return true
   }
   
   const ccs__popover = document.getElementById("ccs_message_a");
@@ -98,6 +98,7 @@ function checkCookie() {
       ccs__popover.showPopover();
   });
 }
+checkPrivacyBanner();
 </script>
 </body>
 </html>
