@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<style>
+.popover {
+  border: none;
+  align-content: center;
+/*   justify-content: center; */
+  margin: auto;
+  max-width: 640px;
+  padding: 48px;
+  text-align: center;
+ 
+  &::backdrop {
+    background-color: #000000AA;    
+  }
+  
+  &:popover-open { /* Allow popover to transition in.  */
+    animation: appear 1s;
+  }
+}
+
+.btn.close {
+  display: block; 
+  font-weight: 900;
+  margin: 4px;
+  min-height: 32px;
+  min-width: 32px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@keyframes appear { /* control popover transition */
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }   
+}
+</style>
+</head>
+<body>
+<!-- 
+Reference: 
+https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using
+-->
+
+<button class="btn" popovertarget="ccs_message_a">Open</button>
+
+<div id="ccs_message_a" class="popover" popover>
+  <h1>We've updated our Privacy Policy.</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus fermentum dolor et efficitur. Donec porttitor porta orci, nec aliquet purus eleifend a. Cras efficitur rhoncus libero eget semper.</p> 
+  <p>Note: Closing this banner will set a temporary cookie on your browser for 60 days. This will help prevent this message from appering on your subsequent visits.</p>
+  <a href="#">Our Privacy Policy</a>
+  <button class="btn close" popovertarget="ccs_message_a" onclick="setCookie('privacy_banner_reviewed', 'yes', 60)">X</button>
+</div>
+
+<script>
+/* Cookie Functions */
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+/* Modal Handler */
+function checkCookie() {
+  let ccs_cookie = getCookie("privacy_banner_reviewed");
+  if (ccs_cookie != "") {
+   return
+  }
+  
+  const ccs__popover = document.getElementById("ccs_message_a");
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+      ccs__popover.showPopover();
+  });
+}
+</script>
+</body>
+</html>
