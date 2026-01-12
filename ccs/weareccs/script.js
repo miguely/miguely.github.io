@@ -68,5 +68,5 @@ document.addEventListener("click", (e) => {
 
   setTimeout(() => {
     window.location.href = destination;
-  }, 2000);
+  }, 1000);
 });
