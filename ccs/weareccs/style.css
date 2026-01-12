@@ -52,7 +52,7 @@ section {
   }
   &::before {
     /* Page Reveal - on load */
-    animation-delay: 2s;
+    animation-delay: 1.5s;
     animation-name: shrinkRightToLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;
