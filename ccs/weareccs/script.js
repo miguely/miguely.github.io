@@ -58,8 +58,6 @@ document.addEventListener("click", (e) => {
     case destination.includes("about.html"):
       variableValue = "var(--slide-color-about)";
       break;
-    default:
-      variableValue = "var(--slide-color-home)"; // Fallback
   }
 
   // Apply the variable to the body (or slideBody)
