@@ -1,39 +1,3 @@
-/* -- The page unload happens too fast for this animation to play. A delay is needed --
-window.addEventListener("beforeunload", (event) => {
-  const slideBody = document.getElementById("slideBody");
-
-  slideBody.classList.toggle("page-exit");
-});
-*/
-
-/*
-document.addEventListener("click", (e) => {
-  const slideBody = document.getElementById("slideBody");
-  const link = e.target.closest(".delayed-link");
-
-  if (!link) return;
-
-  // Allow default behavior for Ctrl+Click, Cmd+Click, or Shift+Click (Open in new tab)
-  if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-
-  // 1. Stop the page from leaving immediately
-  e.preventDefault();
-  const destination = link.href;
-
-  // 2. Trigger your animation (e.g., adding a class to the body)
-  slideBody.classList.add("page-exit");
-
-  switch() {
-
-  }
-
-  // 3. Set the timer to match your CSS animation duration
-  setTimeout(() => {
-    window.location.href = destination;
-  }, 2000);
-});
-*/
-
 document.addEventListener("click", (e) => {
   const slideBody = document.getElementById("slideBody");
   const link = e.target.closest(".delayed-link");
@@ -66,7 +30,18 @@ document.addEventListener("click", (e) => {
 
   slideBody.classList.add("page-exit");
 
+  // The page unload happens too fast for this animation to play. A delay is needed 
   setTimeout(() => {
     window.location.href = destination;
   }, 1000);
+});
+
+// Browser Back-Forward Cache (bfcache) will keep the .page-exit class when returning to the page via BACK button. Use pageshow to remove it.
+window.addEventListener("pageshow", (event) => {
+  const slideBody = document.getElementById("slideBody");
+  
+  // persisted is true if the page is loaded from the bfcache
+  if (event.persisted) {
+    slideBody.classList.remove("page-exit");
+  }
 });
