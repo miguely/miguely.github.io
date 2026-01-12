@@ -30,6 +30,8 @@ section {
 
   & a { color: var(--txt-color); }
   & h1 {
+    animation: revealText 1.5s ease-out forwards;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);   
     font-size: 3rem;
     z-index: 2;
   }
@@ -50,6 +52,7 @@ section {
   }
   &::before {
     /* Page Reveal - on load */
+    animation-delay: 2s;
     animation-name: shrinkRightToLeft;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -101,6 +104,17 @@ section {
     width: 100%;
   }
 }
+
+/* Text Reveal */
+@keyframes revealText {
+  0% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
 /* 
  * Z-Levels
  * 3 - Page Wipe
