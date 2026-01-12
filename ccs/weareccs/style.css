@@ -1,8 +1,8 @@
 :root {
 /* Color Palette */
   --pink: pink;
-  --purple: purple; 
-  --blue: blue;
+  --purple: lavender; 
+  --blue: lightblue;
 }
 
 body {
@@ -21,6 +21,7 @@ section {
   width: 100svw;
   place-content: center;
 
+  & a { color: var(--txt-color); }
   & h1 {
     z-index: 2;
   }
@@ -36,7 +37,7 @@ section {
   &::after {
     /* Page Wipe */
     display: none;
-    background-color: green;
+    background-color: var(--);
     z-index: 3;
   }
   &::before {
@@ -60,14 +61,17 @@ section {
 }
 
 .page-home {
+  --slide-color: var(--blue);
   --bg-color: var(--pink);
   --txt-color: #000;
 }
 .page-about {
+  --slide-color: var(--pink);
   --bg-color: var(--purple);
   --txt-color: #fff;
 }
 .page-project {
+  --slide-color: var(--purple);  
   --bg-color: var(--blue);
   --txt-color: #fff;
 }
