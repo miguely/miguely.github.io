@@ -1,0 +1,105 @@
+:root {
+/* Color Palette */
+  --pink: pink;
+  --purple: purple; 
+  --blue: blue;
+}
+
+body {
+  height: 100svh;
+  margin: 0;
+  padding: 0;
+  width: 100svh;
+}
+
+section {
+  align-items: center;
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+  display: flex;
+  height: 100svh;
+  width: 100svw;
+  place-content: center;
+
+  & h1 {
+    z-index: 2;
+  }
+  &::after,
+  &::before {
+    content: "";
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    transition: width 0.5s ease-in-out;
+    width: 100%;
+  }
+  &::after {
+    /* Page Wipe */
+    display: none;
+    background-color: green;
+    z-index: 3;
+  }
+  &::before {
+    /* Page Reveal - on load */
+    animation-name: shrinkRightToLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+
+    background-color: yellow;
+    z-index: 1;
+  }
+  &.page-exit::after {
+    /* Page Reveal - on load */
+    animation-name: expandLeftToRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    display: flex;
+  }
+}
+
+.page-home {
+  --bg-color: var(--pink);
+  --txt-color: #000;
+}
+.page-about {
+  --bg-color: var(--purple);
+  --txt-color: #fff;
+}
+.page-project {
+  --bg-color: var(--blue);
+  --txt-color: #fff;
+}
+
+/* Reveal Page */
+@keyframes shrinkRightToLeft {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* Wipe page */
+@keyframes expandLeftToRight {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* 
+ * Z-Levels
+ * 3 - Page Wipe
+ * 2 - Heading
+ * 1 - Page Reveal
+ */
+
+/*
+ * Effects: 
+ * Onload: Show Page Reveal & Heading
+ * Onexit: Show Page Wipe
+ */
