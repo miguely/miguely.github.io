@@ -5,7 +5,12 @@
   --blue: lightblue;
 
   --txt-color: #000;
+
+  --slide-color-home: lightblue;
+  --slide-color-about: pink;
+  --slide-color-project: lavender;   
 }
+
 
 body {
   height: 100svh;
@@ -25,6 +30,7 @@ section {
 
   & a { color: var(--txt-color); }
   & h1 {
+    font-size: 3rem;
     z-index: 2;
   }
   &::after,
@@ -49,11 +55,11 @@ section {
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
 
-    background-color: yellow;
+    background-color: var(--slide-color);
     z-index: 1;
   }
   &.page-exit::after {
-    /* Page Reveal - on load */
+    /* Page Reveal - on exit */
     animation-name: expandLeftToRight;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -62,16 +68,17 @@ section {
   }
 }
 
+/* Set page Wipe/Reveal Colors, set here for "reveal" and in the JS for "wipe" */
 .page-home {
-  --slide-color: var(--blue);
+  --slide-color: var(--slide-color-home);
   --bg-color: var(--pink);
 }
 .page-about {
-  --slide-color: var(--pink);
+  --slide-color: var(--slide-color-about);
   --bg-color: var(--purple);
 }
 .page-project {
-  --slide-color: var(--purple);  
+  --slide-color: var(--slide-color-project);  
   --bg-color: var(--blue);
 }
 
@@ -105,4 +112,5 @@ section {
  * Effects: 
  * Onload: Show Page Reveal & Heading
  * Onexit: Show Page Wipe
+ * The destination page determines the color of the wipe/reveal
  */
