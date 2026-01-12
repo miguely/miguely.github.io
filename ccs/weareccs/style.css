@@ -39,7 +39,7 @@ section {
   &::after {
     /* Page Wipe */
     display: none;
-    background-color: var(--);
+    background-color: var(--slide-color);
     z-index: 3;
   }
   &::before {
