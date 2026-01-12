@@ -3,6 +3,8 @@
   --pink: pink;
   --purple: lavender; 
   --blue: lightblue;
+
+  --txt-color: #000;
 }
 
 body {
@@ -63,17 +65,14 @@ section {
 .page-home {
   --slide-color: var(--blue);
   --bg-color: var(--pink);
-  --txt-color: #000;
 }
 .page-about {
   --slide-color: var(--pink);
   --bg-color: var(--purple);
-  --txt-color: #fff;
 }
 .page-project {
   --slide-color: var(--purple);  
   --bg-color: var(--blue);
-  --txt-color: #fff;
 }
 
 /* Reveal Page */
