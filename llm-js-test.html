@@ -5,31 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LLM JS Parse Test 1</title>
   <style>
-    body {
-  background-color: #eee;
-  font-size: 1.25rem;
-  font-family: sans-serif;
-}
-h1, h2, h3 {
-  margin-block: 0 0.5rem;
-  :is(p, ul) + & { margin-top: 3rem; }
-  & + p {
-    margin-top: 0;
+  body {
+    background-color: #eee;
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
   }
-}
-p:has(+ ul) {
-  margin-bottom: 0.5rem;
-
-  & + ul {
-    margin-top: 0;
+    
+  h1, h2, h3 {
+    margin-block: 0 0.5rem;
+    & + p {
+      margin-top: 0;
+    }
+    :is(p, ul) + & { margin-top: 3rem; }
   }
-}
+    
+  p:has(+ ul) {
+    margin-bottom: 0.5rem;
+    & + ul {
+      margin-top: 0;
+    }
+  }
 
 section {
+  box-sizing: border-box;
   margin: clamp(24px, round(3svw, 4px), 48px) auto;
   padding: clamp(32px, round(4svw,4px), 64px); 
   width: min(1200px, 100% - 2rem);
-
   &.setup {
     background-color: pink;
   }
@@ -38,6 +41,7 @@ section {
   }
 }
 </style>
+</head>
 <body>
   <section class="setup">
     <h1>Do AI assistants understand JavaScript content that is written to the page?</h1>
