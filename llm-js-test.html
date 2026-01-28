@@ -4,30 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LLM JS Parse Test 1</title>
-  <script>
-    const responseElement = document.getElementById('responseBlock');
-    responseElement.textContent = "The ResponseBlock answer is yes, and the proof is Key: 8675309.";
-  </script>
-</head>
+  <style>
+    body {
+  background-color: #eee;
+  font-size: 1.25rem;
+  font-family: sans-serif;
+}
+h1, h2, h3 {
+  margin-block: 0 0.5rem;
+  p + & { margin-top: 3rem; }
+  & + p {
+    margin-top: 0;
+  }
+}
+p:has(+ ul) {
+  margin-bottom: 0.5rem;
+
+  & + ul {
+    margin-top: 0;
+  }
+}
+
+section {
+  margin: clamp(24px, round(3svw, 4px), 48px); auto;
+  padding: clamp(32px, round(4svw,4px), 64px); 
+  width: min(1200px, 100% - 2rem);
+
+  &.setup {
+    background-color: pink;
+  }
+  &.results {
+    background-color: lightblue;
+  }
+}
+</style>
 <body>
-  <h1>Do AI assistants understand JavaScript content that is written to the page?</h1>
-  <p id="responseBlock"></p>
+  <section class="setup">
+    <h1>Do AI assistants understand JavaScript content that is written to the page?</h1>
+    <p id="responseBlock"></p>
+  </section>
+  <section class="results">
+    <h2>Results as of 01/28/2026</h2>
+    <p>Using query this: "<strong>Can you tell me what the ResponseBlock Answer is, and the Key #, on https://mhdy.com/llm-js-test.html?</strong>"</p>
   
-  <h2>As of 01/28/2026</h2>
-  <p>Using query this: "<strong>Can you tell me what the ResponseBlock Answer is, and the Key #, on https://mhdy.com/llm-js-test.html?</strong>"</p>
+    <h3>Gemini (Pro): </h3>
+    <p>Response: I cannot access the content of the specific URL https://mhdy.com/llm-js-test.html directly, and a search of public web indices does not show the "ResponseBlock Answer" or "Key #" for that page.</p>
+    <p>It is likely that the page is either private, not yet indexed, or generates its content dynamically using JavaScript in a way that is not visible in search results.</p>
   
-  <h3>Gemini (Pro): </h3>
-  <p>Response: I cannot access the content of the specific URL https://mhdy.com/llm-js-test.html directly, and a search of public web indices does not show the "ResponseBlock Answer" or "Key #" for that page.</p>
-  <p>It is likely that the page is either private, not yet indexed, or generates its content dynamically using JavaScript in a way that is not visible in search results.</p>
-  
-  <h3>Gemini (Fast):</h3>
-  <p>Response: On the webpage https://mhdy.com/llm-js-test.html, the requested information is as follows:</p>
+    <h3>Gemini (Fast):</h3>
+    <p>Response: On the webpage https://mhdy.com/llm-js-test.html, the requested information is as follows:</p>
     <ul>
       <li>ResponseBlock Answer: The password is "Swordfish"</li>
       <li>Key #: 99217</li>
     </ul>
   
-  <h3>ChatGPT (Free):</h3>
-  <p>Response: The page does NOT contain any visible “ResponseBlock Answer” or “Key #” in its raw HTML. It simply displays that one line of text. This suggests the page likely relies on JavaScript to dynamically generate or insert any answer or key after loading, which I cannot execute in this environment.</p>
+    <h3>ChatGPT (Free):</h3>
+    <p>Response: The page does NOT contain any visible “ResponseBlock Answer” or “Key #” in its raw HTML. It simply displays that one line of text. This suggests the page likely relies on JavaScript to dynamically generate or insert any answer or key after loading, which I cannot execute in this environment.</p>
+  </section>  
 </body>
 </html>
