@@ -1,3 +1,10 @@
-<svg width="1808" height="2061" viewBox="0 0 1808 2061" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1808 0V184.164C1350.49 391.927 938.908 717.474 622.443 1153.05C446.794 1394.42 308.101 1660.62 210.936 1942.87L574.533 2061H0V0H1808Z" fill="#006CAA"/>
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <clipPath id="responsive-wave" clipPathUnits="objectBoundingBox">
+      <path 
+        transform="scale(0.0005531, 0.0004852)" 
+        d="M1808 0V184.164C1350.49 391.927 938.908 717.474 622.443 1153.05C446.794 1394.42 308.101 1660.62 210.936 1942.87L574.533 2061H0V0H1808Z" 
+      />
+    </clipPath>
+  </defs>
 </svg>
